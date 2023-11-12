@@ -6,7 +6,7 @@
     include "../model/binhluan.php";
     include "../model/cart.php";
 
-    include "header.php";
+    include "header2.php";
     //controller
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
@@ -153,13 +153,13 @@
                 $listbill = loadall_bill($kyw,0);
                 include "bill/listbill.php";
                 break;
-            // case 'xoadh':
-            //     if (isset($_GET['id']) && ($_GET['id']>0)) {
-            //         delete_donhang($_GET['id']);
-            //     }
-            //     $listbill = loadall_bill("",0);
-            //     include "bill/listbill.php";
-            //     break;
+            case 'xoadh':
+                if (isset($_GET['id']) && ($_GET['id']>0)) {
+                    delete_donhang($_GET['id']);
+                }
+                $listbill = loadall_bill("",0);
+                include "bill/listbill.php";
+                break;
             case 'thongke':
                 $thongke = loadall_thongke();
                 include "thongke/list.php";
@@ -169,13 +169,13 @@
                 include "thongke/bieudo.php";
                 break;
             default:
-                include "home.php";
+                include "home2.php";
                 break;
         }
     }else{
-        include "home.php";
+        include "home2.php";
     }
 
-    include "footer.php";
+    include "footer2.php";
 
 ?>

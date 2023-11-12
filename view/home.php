@@ -69,52 +69,6 @@
                     </div>';
                 $i+=1;
             } ?>
-            
-            <!-- <div class="boxsp margin-r">
-                <div class="row img"><img src="images/1.jpg" alt="sp"></div>
-                <p>$1200</p>
-                <a href="">Laptop 1</a>
-            </div>
-            <div class="boxsp margin-r">
-                <div class="row img"><img src="images/2.jpg" alt="sp2"></div>
-                <p>$1500</p>
-                <a href="">Laptop 2</a>
-            </div>
-            <div class="boxsp">
-                <div class="row img"><img src="images/3.jpg" alt="sp3"></div>
-                <p>$2000</p>
-                <a href="">Laptop 3</a>
-            </div>
-            <div class="boxsp margin-r">
-                <div class="row img"><img src="images/4.jpg" alt="sp4"></div>
-                <p>$1200</p>
-                <a href="">Laptop 4</a>
-            </div>
-            <div class="boxsp margin-r">
-                <div class="row img"><img src="images/5.jpg" alt="sp5"></div>
-                <p>$1500</p>
-                <a href="">Laptop 5</a>
-            </div>
-            <div class="boxsp">
-                <div class="row img"><img src="images/2.jpg" alt="sp6"></div>
-                <p>$2000</p>
-                <a href="">Laptop 6</a>
-            </div>
-            <div class="boxsp margin-r">
-                <div class="row img"><img src="images/3.jpg" alt="sp7"></div>
-                <p>$1200</p>
-                <a href="">Laptop 7</a>
-            </div>
-            <div class="boxsp margin-r">
-                <div class="row img"><img src="images/5.jpg" alt="sp8"></div>
-                <p>$1500</p>
-                <a href="">Laptop 8</a>
-            </div>
-            <div class="boxsp">
-                <div class="row img"><img src="images/1.jpg" alt="sp9"></div>
-                <p>$2000</p>
-                <a href="">Laptop 9</a>
-            </div> --> 
         </div>
     </div>
     

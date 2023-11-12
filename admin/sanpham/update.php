@@ -5,12 +5,12 @@ if (is_array($sanpham)) {
 
 $img_path = "../upload/" . $img;
 if (is_file($img_path)) {
-    $hinh = "<img src='" . $img_path . "' height='80'>";
+    $hinh = "<img style='width: 200px;' src='" . $img_path . "' height='150'>";
 } else {
     $hinh = "No photo";
 }
 ?>
-<div class="row">
+<div class="row boxphai margin-b">
     <div class="row formtitle">
         <h1>CẬP NHẬT SẢN PHẨM</h1>
     </div>

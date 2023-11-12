@@ -8,8 +8,10 @@
     margin: 0 auto;
 }
 .row{
-    float: left;
+    text-align: center;
+    /* float: right; */
     width: 100%;
+
 }
 .margin-b{
     margin-bottom: 20px;
@@ -58,13 +60,14 @@
     color: white;
     font-size: 0.8vw;
 }
-.boxtrai{
+/* .boxtrai{
     float: left;
     width: 74%;
-}
+} */
 .boxphai{
+    padding-right: 30px;
     float: right;
-    width: 24%;
+    width: 80%;
 }
 .boxtitle{
     color: #333;

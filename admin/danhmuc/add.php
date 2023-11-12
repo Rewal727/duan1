@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row boxphai margin-b">
             <div class="row formtitle"><h1>THÊM MỚI LOẠI HÀNG HÓA</h1></div>
             <div class="row formcontent">
                 <form action="index.php?act=adddm" method="post">

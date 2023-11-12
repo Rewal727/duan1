@@ -1,5 +1,5 @@
-<div class="row">
-    <div class="row formtitle">
+<div class="row boxphai margin-b">
+    <div class="row formtitle margin-b">
         <h1>DANH SÁCH LOẠI HÀNG</h1>
     </div>
     <div class="row formcontent">
