@@ -1,5 +1,183 @@
-<!--== Start Footer Area Wrapper ==-->
-<footer class="footer-area">
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+<!-- Mirrored from htmldemo.net/tuime/tuime/account-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:25:48 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tuime - Animal Food Website Template"/>
+    <meta name="keywords" content="accessories, digital products, electronic html, modern, products, responsive"/>
+    <meta name="author" content="hastech"/>
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <!--== Favicon ==-->
+    <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link rel="preconnect" href="../../https://fonts.googleapis.com/">
+    <link rel="preconnect" href="../../https://fonts.gstatic.com/" crossorigin>
+    <link href="../../https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600&amp;display=swap" rel="stylesheet">
+
+    <!--== Bootstrap CSS ==-->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!--== Font Awesome Min Icon CSS ==-->
+    <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!--== 7 Stroke Icon CSS ==-->
+    <link href="../../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <!--== Swiper CSS ==-->
+    <link href="../../assets/css/swiper.min.css" rel="stylesheet" />
+    <!--== Fancybox Min CSS ==-->
+    <link href="../../assets/css/fancybox.min.css" rel="stylesheet" />
+    <!--== Range Slider Min CSS ==-->
+    <link href="../../assets/css/ion.rangeSlider.min.css" rel="stylesheet" />
+
+    <!--== Main Style CSS ==-->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<!--wrapper start-->
+<div class="wrapper">
+
+  <!--== Start Preloader Content ==-->
+  <div class="preloader-wrap">
+    <div class="preloader">
+      <div class="dog-head"></div>
+      <div class="dog-body"></div>
+    </div>
+  </div>
+  <!--== End Preloader Content ==-->
+
+  <!--== Start Header Wrapper ==-->
+  <header class="header-area header-default" data-bg-img="assets/img/photos/header-bg.webp">
+    <div class="container">
+      <div class="row no-gutter align-items-center position-relative">
+        <div class="col-12">
+          <div class="header-align">
+            <div class="header-align-start">
+              <div class="header-logo-area">
+                <a href="index.html">
+                  <img class="logo-main" src="../../img/logo.png" alt="Logo" style="height: 70px;"/>
+                </a>
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--== End Header Wrapper ==-->
+  
+  <main class="main-content">
+    <!--== Start Page Header Area Wrapper ==-->
+    <div class="page-header-area" data-bg-img="assets/img/photos/bg1.webp">
+      <div class="container pt--0 pb--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-header-content">
+              <h2 class="title">Trang tài khoản</h2>
+              <nav class="breadcrumb-area">
+                <ul class="breadcrumb">
+                  <li><a href="index.php?act=dangky">Đăng ký</a></li>
+                  <li class="breadcrumb-sep">//</li>
+                  <li>Đăng nhập</li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Page Header Area Wrapper ==-->
+
+    <!--== Start My Account Area Wrapper ==-->
+    <section class="account-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="login-form-content">
+            <?php
+            if (isset($_SESSION['user'])) {
+                extract($_SESSION['user']);
+                ?>
+                <div class="row margin-b10">
+                  Xin chào<br>
+                  <?= $user ?>
+                </div>
+                <div class="row margin-b10">
+                    <li>
+                        <a href="index.php?act=addtocart">Giỏ hàng</a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=mybill">Đơn hàng của tôi</a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=quenmk">Quên mật khẩu</a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=edittk">Cập nhật tài khoản</a>
+                    </li>
+                        <?php if ($role==1) { ?>
+                    <li>
+                        <a href="admin/index.php">Đăng nhập Admin</a>
+                    </li>
+                        <?php } ?>
+                    <li>
+                        <a href="index.php?act=thoat">Thoát</a>
+                    </li>
+                </div>
+            <?php
+             } else { 
+            ?> 
+              <form method="POST" action="index.php?act=dangnhap">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="username">Username <span class="required">*</span></label>
+                      <input id="username" name="user" class="form-control" type="text">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="password">Password <span class="required">*</span></label>
+                      <input name="pass" id="password" class="form-control" type="password">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input type="submit" class="btn-login" name="dangnhap" value="Đăng nhập"> 
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group account-info-group mb--0">
+                      <div class="rememberme-account">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">Remember me</label>
+                        </div>
+                      </div>
+                      <a class="lost-password" href="index.php?act=quenmk">Lost your password?</a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <?php } ?>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End My Account Area Wrapper ==-->
+
+  <!--== Start Footer Area Wrapper ==-->
+  <footer class="footer-area">
     <!--== Start Footer Main ==-->
     <div class="footer-main">
       <div class="container pt--0 pb--0">
@@ -25,11 +203,11 @@
                   <div class="widget-menu-wrap">
                     <ul class="nav-menu">
                       <li><a href="about-us.html">About Us</a></li>
-                      <li><a href="view/taikhoan/dangnhap.php">Delivery Information</a></li>
-                      <li><a href="view/taikhoan/dangnhap.php">Privacy Policy</a></li>
-                      <li><a href="view/taikhoan/dangnhap.php">Terms & Conditions</a></li>
+                      <li><a href="account-login.html">Delivery Information</a></li>
+                      <li><a href="account-login.html">Privacy Policy</a></li>
+                      <li><a href="account-login.html">Terms & Conditions</a></li>
                       <li><a href="contact.html">Contact Us</a></li>
-                      <li><a href="view/taikhoan/dangnhap.php">Loag In Info</a></li>
+                      <li><a href="account-login.html">Loag In Info</a></li>
                     </ul>
                   </div>
                 </div>
@@ -44,9 +222,9 @@
                 <div class="collapse-body">
                   <div class="widget-menu-wrap">
                     <ul class="nav-menu">
-                      <li><a href="view/taikhoan/dangnhap.php">Gallery</a></li>
+                      <li><a href="account-login.html">Gallery</a></li>
                       <li><a href="shop.html">Brands</a></li>
-                      <li><a href="view/taikhoan/dangnhap.php">Gift Certificates</a></li>
+                      <li><a href="account-login.html">Gift Certificates</a></li>
                       <li><a href="shop.html">Specials</a></li>
                       <li><a href="account.html">My Account Us</a></li>
                       <li><a href="about-us.html">About Us</a></li>
@@ -98,7 +276,7 @@
             <div class="footer-bottom-content">
               <p class="copyright">© 2021 Tuime. Made with <i class="fa fa-heart"></i> by <a target="_blank" href="https://themeforest.net/user/codecarnival">Codecarnival.</a></p>
               <div class="payment">
-                <a href="account.html"><img src="assets/img/photos/payment.png" width="192" height="21" alt="Payment Logo"></a>
+                <a href="account.html"><img src="../../assets/img/photos/payment.png" width="192" height="21" alt="Payment Logo"></a>
               </div>
             </div>
           </div>
@@ -126,7 +304,7 @@
             </div>
             <div class="modal-action-product">
               <div class="thumb">
-                <img src="assets/img/shop/modal1.jpg" alt="Organic Food Juice" width="466" height="320">
+                <img src="../../assets/img/shop/modal1.jpg" alt="Organic Food Juice" width="466" height="320">
               </div>
               <h4 class="product-name"><a href="single-product.html">Joust Duffle Bag</a></h4>
             </div>
@@ -151,7 +329,7 @@
             </div>
             <div class="modal-action-product">
               <div class="thumb">
-                <img src="assets/img/shop/modal1.jpg" alt="Organic Food Juice" width="466" height="320">
+                <img src="../../assets/img/shop/modal1.jpg" alt="Organic Food Juice" width="466" height="320">
               </div>
               <h4 class="product-name"><a href="single-product.html">Joust Duffle Bag</a></h4>
             </div>
@@ -176,7 +354,7 @@
                 <div class="col-lg-6">
                   <!--== Start Product Thumbnail Area ==-->
                   <div class="product-single-thumb">
-                    <img src="assets/img/shop/quick-view1.jpg" width="544" height="560" alt="Image-HasTech">
+                    <img src="../../assets/img/shop/quick-view1.jpg" width="544" height="560" alt="Image-HasTech">
                   </div>
                   <!--== End Product Thumbnail Area ==-->
                 </div>
@@ -251,7 +429,7 @@
         <li class="aside-product-list-item">
           <a href="#/" class="remove">×</a>
           <a href="single-product.html">
-            <img src="assets/img/shop/product-mini/1.jpg" width="90" height="110" alt="Image-HasTech">
+            <img src="../../assets/img/shop/product-mini/1.jpg" width="90" height="110" alt="Image-HasTech">
             <span class="product-title">Leather Mens Slipper</span>
           </a>
           <span class="product-price">1 × £69.99</span>
@@ -259,7 +437,7 @@
         <li class="aside-product-list-item">
           <a href="#/" class="remove">×</a>
           <a href="single-product.html">
-            <img src="assets/img/shop/product-mini/2.jpg" width="90" height="110" alt="Image-HasTech">
+            <img src="../../assets/img/shop/product-mini/2.jpg" width="90" height="110" alt="Image-HasTech">
             <span class="product-title">Quickiin Mens shoes</span>
           </a>
           <span class="product-price">1 × £20.00</span>
@@ -268,7 +446,7 @@
       <p class="cart-total"><span>Subtotal:</span><span class="amount">£89.99</span></p>
       <a class="btn-total" href="shop-cart.html">View cart</a>
       <a class="btn-total" href="shop-checkout.html">Checkout</a>
-      <a class="d-block text-end lh-1" href="shop-checkout.html"><img src="assets/img/photos/paypal.webp" width="133" height="26" alt="Has-image"></a>
+      <a class="d-block text-end lh-1" href="shop-checkout.html"><img src="../../assets/img/photos/paypal.webp" width="133" height="26" alt="Has-image"></a>
     </div>
   </aside>
   <!--== End Aside Cart ==-->
@@ -376,8 +554,8 @@
             <a class="offcanvas-nav-item" href="javascript:void(0)">Pages</a>
             <ul>
               <li><a href="account.html"><span>Account</span></a></li>
-              <li><a href="view/taikhoan/dangnhap.php"><span>Login</span></a></li>
-              <li><a href="view/taikhoan/dangky.php"><span>Register</span></a></li>
+              <li><a href="dangnhap.php"><span>Login</span></a></li>
+              <li><a href="dangky.php"><span>Register</span></a></li>
               <li><a href="page-not-found.html"><span>Page Not Found</span></a></li>
             </ul>
           </li>
@@ -393,31 +571,31 @@
 <!--=======================Javascript============================-->
 
 <!--=== jQuery Modernizr Min Js ===-->
-<script src="assets/js/modernizr.js"></script>
+<script src="../../assets/js/modernizr.js"></script>
 <!--=== jQuery Min Js ===-->
-<script src="assets/js/jquery-main.js"></script>
+<script src="../../assets/js/jquery-main.js"></script>
 <!--=== jQuery Migration Min Js ===-->
-<script src="assets/js/jquery-migrate.js"></script>
+<script src="../../assets/js/jquery-migrate.js"></script>
 <!--=== jQuery Popper Min Js ===-->
-<script src="assets/js/popper.min.js"></script>
+<script src="../../assets/js/popper.min.js"></script>
 <!--=== jQuery Bootstrap Min Js ===-->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
 <!--=== jQuery Swiper Min Js ===-->
-<script src="assets/js/swiper.min.js"></script>
+<script src="../../assets/js/swiper.min.js"></script>
 <!--=== jQuery Fancybox Min Js ===-->
-<script src="assets/js/fancybox.min.js"></script>
+<script src="../../assets/js/fancybox.min.js"></script>
 <!--=== jQuery Countdown Min Js ===-->
-<script src="assets/js/countdown.js"></script>
+<script src="../../assets/js/countdown.js"></script>
 <!--=== jQuery Isotope Min Js ===-->
-<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="../../assets/js/isotope.pkgd.min.js"></script>
 <!--=== jQuery Range Slider Min Js ===-->
-<script src="assets/js/ion.rangeSlider.min.js"></script>
+<script src="../../assets/js/ion.rangeSlider.min.js"></script>
 
 <!--=== jQuery Custom Js ===-->
-<script src="assets/js/custom.js"></script>
+<script src="../../assets/js/custom.js"></script>
 
 </body>
 
 
-<!-- Mirrored from htmldemo.net/tuime/tuime/index-two.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:25:19 GMT -->
+<!-- Mirrored from htmldemo.net/tuime/tuime/account-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:25:48 GMT -->
 </html>

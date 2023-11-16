@@ -10,7 +10,7 @@
     }
 
     function loadall_danhmuc(){
-        $sql = "select * from danhmuc order by id desc";
+        $sql = "select * from danhmuc order by id";
         $listdm = pdo_query($sql);
         return $listdm;
     }

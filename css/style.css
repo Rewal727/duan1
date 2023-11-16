@@ -13,6 +13,9 @@
     width: 100%;
 
 }
+.padding-l{
+    padding-left: 10px;
+}
 .margin-b{
     margin-bottom: 20px;
 }
@@ -396,8 +399,6 @@
 
 
 
-
-
 /* Slideshow container */
 .slideshow-container {
     max-width: 1000px;
@@ -488,3 +489,8 @@
     from {opacity: .4}
     to {opacity: 1}
   }
+
+
+
+
+

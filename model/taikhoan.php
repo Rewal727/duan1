@@ -22,7 +22,7 @@
     }
 
     function loadall_taikhoan(){
-        $sql = "select * from taikhoan order by id desc";
+        $sql = "select * from taikhoan order by id";
         $listtk = pdo_query($sql);
         return $listtk;
     } 

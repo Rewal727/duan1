@@ -126,13 +126,13 @@
                 $listtk = loadall_taikhoan();
                 include "taikhoan/listtk.php";
                 break;
-            // case 'xoatk':
-            //     if (isset($_GET['id']) && ($_GET['id']>0)) {
-            //         delete_taikhoan($_GET['id']);
-            //     }
-            //     $listtk = loadall_taikhoan();
-            //     include "taikhoan/listtk.php";
-            //     break;
+            case 'xoatk':
+                if (isset($_GET['id']) && ($_GET['id']>0)) {
+                    delete_taikhoan($_GET['id']);
+                }
+                $listtk = loadall_taikhoan();
+                include "taikhoan/listtk.php";
+                break;
             case 'dsbl':
                 $listbl = loadall_binhluan(0);
                 include "binhluan/listbl.php";
@@ -177,5 +177,22 @@
     }
 
     include "footer2.php";
-
+    
 ?>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Trang Admin - VHT</title>
+</head>
+<body>
+    <div class="padding-l boxphai margin-b">
+        <div class="row formtitle margin-b">
+            <h1>Control Page</h1>
+        </div>
+    </div>
+</body>
+</html> -->

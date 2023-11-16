@@ -21,6 +21,9 @@
   Typography CSS
 -----------------------------------------------------------------------
 */
+header{
+  background: #b7afaf !important;
+}
 body {
   color: #181818;
   font-size: 16px;

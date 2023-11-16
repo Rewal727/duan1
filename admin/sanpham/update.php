@@ -10,7 +10,7 @@ if (is_file($img_path)) {
     $hinh = "No photo";
 }
 ?>
-<div class="row boxphai margin-b">
+<div class="padding-l boxphai margin-b">
     <div class="row formtitle">
         <h1>CẬP NHẬT SẢN PHẨM</h1>
     </div>

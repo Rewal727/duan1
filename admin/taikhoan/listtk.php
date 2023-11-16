@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row boxphai margin-b">
     <div class="row formtitle">
         <h1>DANH SÁCH TÀI KHOẢN</h1>
     </div>

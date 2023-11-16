@@ -29,7 +29,7 @@
         if($iddm>0){
             $sql.=" and iddm ='$iddm'";
         }
-        $sql.=" order by id desc";
+        $sql.=" order by id";
         $listsp = pdo_query($sql);
         return $listsp;
     }

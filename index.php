@@ -5,7 +5,7 @@
     include "model/danhmuc.php";
     include "model/taikhoan.php";
     include "model/cart.php";
-    include "view/header.php";
+    include "header2.php";
     include "global.php";
 
     if(!isset($_SESSION['mycart'])){
@@ -45,7 +45,7 @@
                     $spcungloai = loadone_sanpham_cungloai($id,$iddm);
                     include "view/sanphamct.php";
                 }else{
-                    include "view/home.php";
+                    include "home2.php";
                 }
                 
                 break;
@@ -76,7 +76,7 @@
                     
                 }
                 
-                include "view/taikhoan/dangky.php";
+                include "view/taikhoan/dangnhap.php";
                 break;  
             case 'edittk':
                 if (isset($_POST['capnhat'])&&($_POST['capnhat'])) {
@@ -180,13 +180,13 @@
                 include "view/lienhe.php";
                 break;
             default:
-                include "view/home.php";
+                include "home2.php";
                 break;
         }
     }else{
-        include "view/home.php";
+        include "home2.php";
     }
-    include "view/footer.php";
+    include "footer2.php";
 
 
 ?>
