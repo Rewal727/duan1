@@ -7,7 +7,7 @@
           <div class="col-md-6 col-lg-3">
             <div class="widget-item widget-about">
               <h4 class="widget-title">About Us</h4>
-              <p class="desc">Lorem ipsum dolor sit amet, consectel adipisicing elit, sed do eiusmod temp incidid ut labore et dolo</p>
+              <p class="desc">Dưới đây là những trang mạng xã hội của cửa hàng chúng tôi.</p>
               <div class="social-icons">
                 <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
                 <a href="https://dribbble.com/" target="_blank" rel="noopener"><i class="fa fa-dribbble"></i></a>
@@ -63,13 +63,13 @@
               <div id="widgetId-3" class="collapse widget-collapse-body">
                 <div class="collapse-body">
                   <div class="widget-contact-info">
-                    <p class="contact-info-desc">If you have any question.please contact us at <a href="mailto://demo@example.com">demo@example.com</a></p>
+                    <p class="contact-info-desc">Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi tại <a href="mailto://trasuavht@gmail.com">trasuavht@gmail.com</a></p>
                     <div class="contact-item">
                       <div class="icon">
                         <i class="pe-7s-map-marker"></i>
                       </div>
                       <div class="info">
-                        <p>Your address goes here. <br>123, Address.</p>
+                        <p>Địa chỉ cửa hàng <br>Nam Từ Liêm, Hà Nội.</p>
                       </div>
                     </div>
                     <div class="contact-item phone-info">
@@ -77,7 +77,7 @@
                         <i class="pe-7s-phone"></i>
                       </div>
                       <div class="info">
-                        <p><span>Have any Question</span> <br><a href="tel://0123456789">+0 123 456 789</a></p>
+                        <p><span>Holine</span> <br><a href="tel://098666666">+84 98 666 666</a></p>
                       </div>
                     </div>
                   </div>
@@ -96,7 +96,7 @@
         <div class="row">
           <div class="col-12">
             <div class="footer-bottom-content">
-              <p class="copyright">© 2021 Tuime. Made with <i class="fa fa-heart"></i> by <a target="_blank" href="https://themeforest.net/user/codecarnival">Codecarnival.</a></p>
+              <p class="copyright">© 2023 Trà Sữa VHT <i class="fa fa-heart"></i></p>
               <div class="payment">
                 <a href="account.html"><img src="assets/img/photos/payment.png" width="192" height="21" alt="Payment Logo"></a>
               </div>

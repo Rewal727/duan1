@@ -2,9 +2,9 @@
   <!--== Start Hero Area Wrapper ==-->
   <section class="home-slider-area">
     <div class="swiper home-slider-container default-slider-container">
-      <div class="swiper-wrapper home-slider-wrapper slider-default">
+    <div class="swiper-wrapper home-slider-wrapper slider-default">
         <div class="swiper-slide">
-          <div class="slider-content-two-area" data-bg-img="assets/img/slider/slider-02.webp">
+          <div class="slider-content-two-area" data-bg-img="assets/img/photos/slide4.jpg">
             <div class="container">
               <div class="slider-container">
 
@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="slider-content-area" data-bg-img="assets/img/slider/slider-bg.webp">
+          <div class="slider-content-area" data-bg-img="assets/img/photos/slide3.jpg">
             <div class="container">
               <div class="slider-container">
                 <div class="row justify-content-between align-items-center">
@@ -25,10 +25,10 @@
                           <h5 class="sub-title">Up To 40% Off</h5>
                         </div>
                         <div class="title-box">
-                          <h2 class="title">A Greate Meal With Your Pet</h2>
+                          <h2 class="title">Deal cực múp cho mùa đông</h2>
                         </div>
                         <div class="btn-box">
-                          <a class="btn-theme text-dark" href="shop.html">Shop Now</a>
+                          <a class="btn-theme text-dark" href="index.php?act=sanpham">MUA NGAY</a>
                         </div>
                       </div>
                     </div>
@@ -36,7 +36,7 @@
                   <div class="col-sm-6 col-md-6">
                     <div class="slider-thumb mousemove">
                       <div class="thumb">
-                        <img src="assets/img/slider/slider-01.jpg" width="585" height="579" alt="Image-HasTech">
+                        <img src="assets/img/photos/slide1.png" width="585" height="579" alt="Image-HasTech">
                         <div class="shape-one"></div>
                       </div>
                     </div>
@@ -82,7 +82,7 @@
               <img class="icon-img" src="assets/img/icons/f2.png" width="43" height="34" alt="Icon-HasTech">
             </div>
             <div class="content">
-              <h5 class="title">Thanh toán
+              <h5 class="title">Thanh toán</h5>
                 <p>Nhanh gọn</p>
             </div>
           </div>
@@ -226,7 +226,7 @@
                             <div class="product-info">
                               <h4 class="title"><a href="single-product.html">' . $name . '</a></h4>
                               <div class="prices">
-                                <span class="price">' . $price . '</span>
+                                <span class="price">' . $price . ' VNĐ</span>
                               </div>
                             </div>
                             <div class="product-action">
@@ -246,43 +246,8 @@
                       </div>';
               $i += 1;
             } ?>
-
-
-
-            <!--== End prPduct Item ==-->
+              <!--== End prPduct Item ==-->
           </div>
-          <!-- <div class="col-sm-6 col-lg-3 isotope-item filter_new filter_featured">
-          
-            <div class="product-item">
-              <div class="product-thumb">
-                <a href="single-product.html">
-                  <img src="assets/img/shop/2.jpg" width="270" height="320" alt="Image-HasTech">
-                </a>
-              </div>
-              <div class="product-info">
-                <h4 class="title"><a href="single-product.html">Endeavor Daytripa</a></h4>
-                <div class="prices">
-                  <span class="price">$33.00</span>
-                </div>
-              </div>
-              <div class="product-action">
-                <button type="button" class="btn-product-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                  <i class="pe-7s-like"></i>
-                </button>
-                <div class="product-action-links">
-                  <button type="button" class="btn-product-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                    <i class="pe-7s-shopbag"></i>
-                  </button>
-                  <button type="button" class="btn-product-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                    <i class="pe-7s-look"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-
-
         </div>
       </div>
   </section>
@@ -293,16 +258,16 @@
     <div class="container pt--0 pb--0">
       <div class="row divider-style2">
         <div class="col-lg-6">
-          <div class="divider-thumb">
-            <img src="assets/img/photos/divider3.png" width="595" height="523" alt="Image-HasTech">
+          <div class="divider-thumb" style="margin-top: -120px;">
+            <img src="assets/img/photos/slide2.png" width="595" height="523" alt="Image-HasTech">
           </div>
         </div>
         <div class="col-lg-6">
           <div class="divider-content">
             <h5 class="sub-title">Save 50% Off</h5>
             <h2 class="title">Best Deal Offer</h2>
-            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etlop.</p>
-            <a class="btn-theme text-dark" href="shop.html">Shop Now</a>
+            <!-- <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etlop.</p> -->
+            <a class="btn-theme text-dark" href="index.php?act=sanpham">MUA NGAY</a>
           </div>
         </div>
       </div>
@@ -316,8 +281,8 @@
       <div class="row">
         <div class="col-12">
           <div class="section-title shape-center text-center">
-            <h5 class="sub-title">Trending Productts</h5>
-            <h2 class="title">Deal Of The Day</h2>
+            <h5 class="sub-title">SẢN PHẨM BÁN CHẠY</h5>
+            <h2 class="title">Trong Ngày</h2>
           </div>
         </div>
       </div>
@@ -329,7 +294,7 @@
               <div class="col-lg-6">
                 <div class="product-thumb">
                   <a href="single-product.html">
-                    <img src="assets/img/shop/9.jpg" width="270" height="320" alt="Image-HasTech">
+                    <img src="assets/img/photos/sanpham2.png" width="270" height="320" alt="Image-HasTech">
                   </a>
                   <div class="product-action">
                     <button type="button" class="btn-product-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
@@ -352,16 +317,16 @@
                     <span class="countdown-title">End In:</span>
                     <div class="ht-countdown ht-countdown-style1" data-date="1/10/2024"></div>
                   </div>
-                  <h4 class="title"><a href="single-product.html">Joust Duffle Bag</a></h4>
+                  <h4 class="title"><a href="single-product.html">Trà sữa nướng</a></h4>
                   <div class="prices">
-                    <span class="price">$20.19</span>
+                    <span class="price">25.000 VNĐ</span>
                   </div>
                   <div class="product-feature-list">
                     <ul>
-                      <li><span>Predecessor :</span> None.</li>
-                      <li><span>Support Type :</span> Neutral.</li>
-                      <li><span>Cushioning :</span> High Energizing.</li>
-                      <li><span>Total Weight :</span> 300gm</li>
+                      <li><span>Sữa :</span> 70% </li>
+                      <li><span>Đường :</span> 10% </li>
+                      <li><span>Trân châu :</span> 20% </li>
+                      <li><span>Trọng lượng :</span> 500ml</li>
                     </ul>
                   </div>
                 </div>
@@ -377,7 +342,7 @@
               <div class="col-lg-6">
                 <div class="product-thumb">
                   <a href="single-product.html">
-                    <img src="assets/img/shop/10.jpg" width="270" height="320" alt="Image-HasTech">
+                    <img src="assets/img/photos/sanpham1.png" width="270" height="320" alt="Image-HasTech">
                   </a>
                   <div class="product-action">
                     <button type="button" class="btn-product-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
@@ -400,16 +365,16 @@
                     <span class="countdown-title">End In:</span>
                     <div class="ht-countdown ht-countdown-style1" data-date="1/10/2024"></div>
                   </div>
-                  <h4 class="title"><a href="single-product.html">Wayfarer Messenger Bag</a></h4>
+                  <h4 class="title"><a href="single-product.html">Trà sữa chân trâu</a></h4>
                   <div class="prices">
-                    <span class="price">$40.19</span>
+                    <span class="price">25.000 VNĐ</span>
                   </div>
                   <div class="product-feature-list">
                     <ul>
-                      <li><span>Predecessor :</span> None.</li>
-                      <li><span>Support Type :</span> Neutral.</li>
-                      <li><span>Cushioning :</span> High Energizing.</li>
-                      <li><span>Total Weight :</span> 300gm</li>
+                      <li><span>Sữa :</span> 70% </li>
+                      <li><span>Đường :</span> 10% </li>
+                      <li><span>Trân châu :</span> 20% </li>
+                      <li><span>Trọng lượng :</span> 500ml</li>
                     </ul>
                   </div>
                 </div>
@@ -421,6 +386,7 @@
       </div>
     </div>
   </section>
+
   <!--== End Product Area Wrapper ==-->
 
 

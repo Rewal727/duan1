@@ -70,37 +70,19 @@
                 <ul class="main-menu nav">
                   <li class="has-submenu"><a href="index.php"><span>Trang chủ</span></a>
                   </li>
-                  <li class="has-submenu position-static"><a href="#/"><span>Trà sữa</span></a>
+                  <li class="has-submenu position-static"><a href="#/"><span>Menu</span></a>
                     <ul class="submenu-nav submenu-nav-mega column-3">
-                      <li class="mega-menu-item"><a href="#/" class="mega-title"><span>Trà sữa</span></a>
+                      <li class="mega-menu-item"><a href="#/" class="mega-title"><span>Menu</span></a>
                         <ul>
-                          <li><a href="#"><span>Trà sữa chân trâu</span></a></li>
-                          <li><a href="#"><span>Trà sữa matcha</span></a></li>
-                          <li><a href="#"><span>Trà sữa socola</span></a></li>
-                          <li><a href="#"><span>Trà sữa dâu tây</span></a></li>
+                          <li><a href="#"><span>Trà sữa</span></a></li>
+                          <li><a href="#"><span>Kem</span></a></li>
+                          <li><a href="#"><span>Đồ ăn vặt</span></a></li>
                         </ul>
                       </li>
 
                     </ul>
                   </li>
-                  <li class="has-submenu"><a href="#"><span>Kem</span></a>
-                    <ul class="submenu-nav submenu-nav-mega">
-                      <li class="mega-menu-item"><a href="#/" class="mega-title">Kem</a>
-                        <ul>
-                          <li><a href="blog-grid.html">Kem Mixeu</a></li>
-                          <li><a href="blog.html">Kem sữa dừa</a></li>
-                          <li><a href="blog-right-sidebar.html">Kem đậu xanh</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="has-submenu"><a href="#"><span>Đồ ăn vặt</span></a>
-                    <ul class="submenu-nav">
-                      <li><a href="account.html"><span>Gà rán</span></a></li>
-                      <li><a href="account-login.html"><span>Khoai tây</span></a></li>
-                      <li><a href="account-register.html"><span>Nước ngọt</span></a></li>
-                    </ul>
-                  </li>
+                  <li class="has-submenu"><a href="#"><span>Giới thiệu</span></a></li>
                   <li><a href="contact.html"><span>Liên hệ</span></a></li>
                   <li class="has-submenu"><a href="#"><span>Tài khoản</span></a>
                     <ul class="submenu-nav">
