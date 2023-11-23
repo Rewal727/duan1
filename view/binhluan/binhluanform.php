@@ -67,8 +67,21 @@
                 
                 <?php
                     if (isset($_SESSION['user'])) {
-                        echo '<input type="text" name="noidung" placeholder="Nhập nội dung bình luận">
-                        <input type="submit" name="guibinhluan" value="Gửi bình luận">';
+                        echo '<div class="row">
+                        <div class="col-12">
+                          <div class="form-group">
+                            <label for="ReviewComment" class="form-label">Your review *</label>
+                            <input type="text" placeholder="Nhập nội dung bình luận" name="noidung" id="ReviewComment" class="form-control">
+                          </div>
+                        </div>
+        
+                        <div class="col-md-12">
+                          <div class="form-group mb--0">
+                            <input name="guibinhluan" type="submit" value="Submit">
+                          </div>
+                        </div>
+                        
+                      </div>';
                     }else{
                         echo "Vui lòng đăng nhập để có thể để lại bình luận";
                     }

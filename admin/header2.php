@@ -110,7 +110,7 @@
                     </div>
                 </a>
                 <ul>
-                    <li><a href="../Basic_Elements.html">Danh sách</a></li>
+                    <li><a href="index.php?act=dsbl">Danh sách</a></li>
                 </ul>
             </li>
             <li class>
@@ -123,10 +123,7 @@
                     </div>
                 </a>
                 <ul>
-                    <li><a href="../Products.html">Products</a></li>
-                    <li><a href="../Product_Details.html">Product Details</a></li>
-                    <li><a href="../Cart.html">Cart</a></li>
-                    <li><a href="../Checkout.html">Checkout</a></li>
+                    <li><a href="index.php?act=listbill">Đơn hàng</a></li>
                 </ul>
             </li>
             <li class>
@@ -142,6 +139,16 @@
                     <li><a href="../Fontawesome_Icon.html">Fontawesome Icon</a></li>
                     <li><a href="../themefy_icon.html">themefy icon</a></li>
                 </ul>
+            </li>
+            <li class>
+                <a class="has-arrow" href="../index.php" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="../img/menu-icon/8.svg" alt>
+                    </div>
+                    <div class="nav_title">
+                        <span>Quay lại trang người dùng</span>
+                    </div>
+                </a>
             </li>
         </ul>
     </nav>

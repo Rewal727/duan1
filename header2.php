@@ -14,6 +14,7 @@
     <title>Trà Sữa VHT</title>
 
     <!--== Favicon ==-->
+
     <link rel="shortcut icon" href="assets/img/logo/logoduan1.png" type="image/x-icon" />
 
     <!--== Google Fonts ==-->
@@ -60,7 +61,7 @@
           <div class="header-align">
             <div class="header-align-start">
               <div class="header-logo-area">
-                <a href="index.html">
+                <a href="index.php">
                   <img class="logo-main" src="assets/img/logo/logoduan1.png" width="90" height="36" alt="Logo" />
                 </a>
               </div>
@@ -70,7 +71,7 @@
                 <ul class="main-menu nav">
                   <li class="has-submenu"><a href="index.php"><span>Trang chủ</span></a>
                   </li>
-                  <li class="has-submenu position-static"><a href="#/"><span>Menu</span></a>
+                  <li class="has-submenu position-static"><a href="index.php?act=sanpham"><span>Menu</span></a>
                     <ul class="submenu-nav submenu-nav-mega column-3">
                       <li class="mega-menu-item"><a href="#/" class="mega-title"><span>Menu</span></a>
                         <ul>
@@ -84,7 +85,7 @@
                   </li>
                   <li class="has-submenu"><a href="#"><span>Giới thiệu</span></a></li>
                   <li><a href="contact.html"><span>Liên hệ</span></a></li>
-                  <li class="has-submenu"><a href="#"><span>Tài khoản</span></a>
+                  <li class="has-submenu"><a href="index.php?act=dangnhap"><span>Tài khoản</span></a>
                     <ul class="submenu-nav">
                       <li><a href="account.html"><span>Trang cá nhân</span></a></li>
                       <li><a href="index.php?act=edittk"><span>Cập nhật tài khoản</span></a></li>
@@ -111,11 +112,13 @@
                   </a>
                 </div>
                 <div class="shopping-cart">
+                  <a href="index.php?act=addtocart">
                   <button class="shopping-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="AsideOffcanvasCart">
                     <i class="pe-7s-shopbag icon"></i>
-                    <sup class="shop-count">2</sup>
+                    <sup class="shop-count">!</sup>
                   </button>
                 </div>
+                  </a>
                 <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
                   <i class="pe-7s-menu"></i>
                 </button>

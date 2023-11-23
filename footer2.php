@@ -241,7 +241,7 @@
   <!--== End Product Quick View Modal ==-->
 
   <!--== Start Aside Cart ==-->
-  <aside class="aside-cart-wrapper offcanvas offcanvas-end" tabindex="-1" id="AsideOffcanvasCart" aria-labelledby="offcanvasRightLabel">
+  <!-- <aside class="aside-cart-wrapper offcanvas offcanvas-end" tabindex="-1" id="AsideOffcanvasCart" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
       <h1 class="d-none" id="offcanvasRightLabel">Shopping Cart</h1>
       <button class="btn-aside-cart-close" data-bs-dismiss="offcanvas" aria-label="Close">Shopping Cart <i class="fa fa-chevron-right"></i></button>
@@ -266,11 +266,11 @@
         </li>
       </ul>
       <p class="cart-total"><span>Subtotal:</span><span class="amount">£89.99</span></p>
-      <a class="btn-total" href="shop-cart.html">View cart</a>
-      <a class="btn-total" href="shop-checkout.html">Checkout</a>
+      <a class="btn-total" href="index.php?act=addtocart">View cart</a>
+      <a class="btn-total" href="index.php?act=billconfirm">Checkout</a>
       <a class="d-block text-end lh-1" href="shop-checkout.html"><img src="assets/img/photos/paypal.webp" width="133" height="26" alt="Has-image"></a>
     </div>
-  </aside>
+  </aside> -->
   <!--== End Aside Cart ==-->
 
   <!--== Start Aside Search Form ==-->
@@ -285,11 +285,10 @@
           <div class="search-note">
             <p>Start typing and press Enter to search</p>
           </div>
-          <form action="#" method="post">
+          <form action="index.php?act=sanpham" method="post">
             <div class="search-form position-relative">
-              <label for="search-input" class="visually-hidden">Search</label>
-              <input id="search-input" type="search" class="form-control" placeholder="Search entire store…">
-              <button class="search-button"><i class="fa fa-search"></i></button>
+              <input id="search-input" type="text" name="kyw" class="form-control" placeholder="Nhập từ khóa để tìm kiếm">
+              <input class="search-button" type="submit" name="timkiem" value="Tìm" >
             </div>
           </form>
         </div>
@@ -298,96 +297,6 @@
   </aside>
   <!--== End Aside Search Form ==-->
 
-  <!--== Start Aside Menu ==-->
-  <aside class="off-canvas-wrapper offcanvas offcanvas-start" tabindex="-1" id="AsideOffcanvasMenu" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h1 class="d-none" id="offcanvasExampleLabel">Aside Menu</h1>
-      <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i class="fa fa-chevron-left"></i></button>
-    </div>
-    <div class="offcanvas-body">
-      <nav id="offcanvasNav" class="offcanvas-menu-nav">
-        <ul>
-          <li class="offcanvas-nav-parent">
-            <a class="offcanvas-nav-item" href="javascript:void(0)">Home</a>
-            <ul>
-              <li><a href="index.html"><span>Home One</span></a></li>
-              <li><a href="index-two.html"><span>Home Two</span></a></li>
-            </ul>
-          </li>
-
-          <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">About</a></li>
-
-          <li class="offcanvas-nav-parent">
-            <a class="offcanvas-nav-item" href="javascript:void(0)">Shop</a>
-            <ul>
-              <li>
-                <a class="offcanvas-nav-item" href="javascript:void(0)">Shop Layouts</a>
-                <ul>
-                  <li><a href="shop-three-columns.html"><span>Shop 3 Column</span></a></li>
-                  <li><a href="shop-four-columns.html"><span>Shop 4 Column</span></a></li>
-                  <li><a href="shop-left-sidebar.html"><span>Shop Left Sidebar</span></a></li>
-                  <li><a href="shop.html"><span>Shop Right Sidebar</span></a></li>
-                </ul>
-              </li>
-              <li>
-                <a class="offcanvas-nav-item" href="javascript:void(0)">Single Product</a>
-                <ul>
-                  <li><a href="single-normal-product.html"><span>Single Product Normal</span></a></li>
-                  <li><a href="single-product.html"><span>Single Product Variable</span></a></li>
-                  <li><a href="single-group-product.html"><span>Single Product Group</span></a></li>
-                  <li><a href="single-affiliate-product.html"><span>Single Product Affiliate</span></a></li>
-                </ul>
-              </li>
-              <li>
-                <a class="offcanvas-nav-item" href="javascript:void(0)">Others Pages</a>
-                <ul>
-                  <li><a href="shop-cart.html"><span>Shopping Cart</span></a></li>
-                  <li><a href="shop-checkout.html"><span>Checkout</span></a></li>
-                  <li><a href="shop-wishlist.html"><span>Wishlist</span></a></li>
-                  <li><a href="shop-compare.html"><span>Compare</span></a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-
-          <li class="offcanvas-nav-parent">
-            <a class="offcanvas-nav-item" href="javascript:void(0)">Blog</a>
-            <ul>
-              <li>
-                <a class="offcanvas-nav-item" href="javascript:void(0)">Blog Layout</a>
-                <ul>
-                  <li><a href="blog-grid.html">Blog Grid</a></li>
-                  <li><a href="blog.html">Blog Left Sidebar</a></li>
-                  <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                </ul>
-              </li>
-              <li>
-                <a class="offcanvas-nav-item" href="javascript:void(0)">Single Blog</a>
-                <ul>
-                  <li><a href="blog-details-no-sidebar.html">Blog Details</a></li>
-                  <li><a href="blog-details.html">Blog Details Left Sidebar</a></li>
-                  <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-
-          <li class="offcanvas-nav-parent">
-            <a class="offcanvas-nav-item" href="javascript:void(0)">Pages</a>
-            <ul>
-              <li><a href="account.html"><span>Account</span></a></li>
-              <li><a href="view/taikhoan/dangnhap.php"><span>Login</span></a></li>
-              <li><a href="view/taikhoan/dangky.php"><span>Register</span></a></li>
-              <li><a href="page-not-found.html"><span>Page Not Found</span></a></li>
-            </ul>
-          </li>
-
-          <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </aside>
-  <!--== End Aside Menu ==-->
 </div>
 
 <!--=======================Javascript============================-->

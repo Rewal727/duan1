@@ -129,8 +129,8 @@
                 }else{
                     $_SESSION['mycart']=[];
                 }
-                header('Location: index.php?act=addtocart');
-                // include "view/cart/viewcart.php";
+                // header('Location: index.php?act=addtocart');
+                include "view/cart/viewcart.php";
                 break;
             case 'bill':
                 include "view/cart/bill.php";

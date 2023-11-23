@@ -253,6 +253,7 @@
   </section>
   <!--== End Product Area Wrapper ==-->
 
+
   <!--== Start Divider Area Wrapper ==-->
   <section class="bg-theme-color bg-img" data-bg-img="assets/img/photos/bg2.webp">
     <div class="container pt--0 pb--0">
