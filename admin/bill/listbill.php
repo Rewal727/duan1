@@ -16,9 +16,9 @@
                     <th></th>
                     <th>MÃ ĐƠN HÀNG</th>
                     <th>KHÁCH HÀNG</th>
-                    <th>SỐ LƯỢNG HÀNG</th>
-                    <th>GIÁ TRỊ ĐƠN HÀNG</th>
-                    <th>TÌNH TRẠNG ĐƠN HÀNG</th>
+                    <th>SỐ LƯỢNG</th>
+                    <th>GIÁ TIỀN</th>
+                    <th>TRẠNG THÁI ĐƠN HÀNG</th>
                     <th>NGÀY ĐẶT HÀNG</th>
                     <th>THAO TÁC</th>
                 </tr>

@@ -6,7 +6,7 @@
     include "../model/binhluan.php";
     include "../model/cart.php";
 
-    include "header2.php";
+    include "header.php";
     //controller
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
@@ -153,6 +153,30 @@
                 $listbill = loadall_bill($kyw,0);
                 include "bill/listbill.php";
                 break;
+            case 'suadh':
+                if (isset($_GET['id']) && ($_GET['id']>0)) {
+                    $bill = loadone_bill($_GET['id']);
+                    $sanpham = loadone_sanpham($_GET['id']);
+                }              
+                include "bill/update.php";
+                break;
+            case 'updatedh':
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                    $id = $_POST['id'];
+                    $bill_name = $_POST['user'];
+                    $bill_address = $_POST['address'];
+                    $bill_tel = $_POST['tel'];
+                    $bill_email = $_POST['email'];
+                    $total = $_POST['total'];
+                    $bill_status = $_POST['status'];
+                    $ngaydathang = $_POST['ngaydathang'];
+                    
+                    update_bill($id, $bill_name, $bill_address, $bill_tel, $bill_email, $total, $bill_status, $ngaydathang);
+                    $thongbao = "Cập nhật thành công";
+                }
+                $listbill = loadall_bill("",0);
+                include "bill/listbill.php";
+                break;
             case 'xoadh':
                 if (isset($_GET['id']) && ($_GET['id']>0)) {
                     delete_donhang($_GET['id']);
@@ -169,14 +193,14 @@
                 include "thongke/bieudo.php";
                 break;
             default:
-                include "home2.php";
+                include "home.php";
                 break;
         }
     }else{
-        include "home2.php";
+        include "home.php";
     }
 
-    include "footer2.php";
+    include "footer.php";
     
 ?>
 

@@ -87,6 +87,10 @@ function loadall_cart($idbill){
     return $bill;
 }
 
+function update_bill($id, $bill_name, $bill_address, $bill_tel, $bill_email, $total, $bill_status, $ngaydathang){ 
+    $sql = "update bill set bill_name='".$bill_name."', bill_address='".$bill_address."', bill_tel='".$bill_tel."', bill_email='".$bill_email."', total='".$total."', bill_status='".$bill_status."', ngaydathang='".$ngaydathang."' where id =".$id;
+    pdo_execute($sql);
+}
 
 function chitiet_bill($listbill)
 {
@@ -152,10 +156,13 @@ function get_ttdh($n)
             $tt = "Đang xử lý";
             break;
         case '2':
-            $tt = "Đơn giao hàng";
+            $tt = "Đang giao hàng";
             break;
         case '3':
-            $tt = "Hoàn tất";
+            $tt = "Giao hàng thành công";
+            break;
+        case '4':
+            $tt = "Đã hủy";
             break;
         default:
             $tt = "Đơn hàng mới";
