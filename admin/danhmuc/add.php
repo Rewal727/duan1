@@ -10,9 +10,9 @@
                         Tên loại <br>
                         <input type="text" name="tenloai">
                     </div>
-                    <div class="row margin-b10">
-                        <input type="submit" name="themmoi" value="THÊM MỚI">
-                        <input type="reset" value="NHẬP LẠI" name="reset">
+                    <div class="row margin-b10" style="display:inline-block;">
+                        <input type="submit" name="themmoi" value="THÊM MỚI" style="width: 100px;">
+                        <input type="reset" value="NHẬP LẠI" name="reset" style="width: 100px;">
                         <a href="index.php?act=listdm"><input type="button" name="list" value="DANH SÁCH"></a>  
                     </div>
                     <?php

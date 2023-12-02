@@ -4,15 +4,15 @@
 
     <div class="row margin-b">
                 
-                    <div class="boxtitle">CHI TIẾT GIỎ HÀNG</div>
-                    <div class="row boxcontent cart">
+                    <div class="boxtitle">CHI TIẾT ĐƠN HÀNG</div>
+                    <div class="boxcontent cart">
                         <table>
                             <tr>
                                 <th>MÃ ĐƠN HÀNG</th>
-                                    <th>NGÀY ĐẶT</th>
+                                <th>NGÀY ĐẶT</th>
                                 <th>SỐ LƯỢNG MẶT HÀNG</th>
-                                <th>TỔNG GIÁ TRỊ ĐƠN HÀNG</th>
-                                <th>TÌNH TRẠNG ĐƠN HÀNG</th>
+                                <th>TỔNG SỐ TIỀN</th>
+                                <th>TRẠNG THÁI ĐƠN HÀNG</th>
                             </tr>
 
                             <?php 
@@ -38,7 +38,4 @@
                 </div>
 
     </div>
-        <div class="boxphai">
-            <?php include "view/boxright.php" ?>
-        </div>
 </div>

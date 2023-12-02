@@ -69,15 +69,25 @@
                     if(is_array($checkuser)){
                         $_SESSION['user'] = $checkuser;
                         // $thongbao = "Đăng nhập thành công!";
-                        header("Location: index.php");
+                        include "view/taikhoan/account.php";
                     }else{
                         $thongbao = "Tên đăng nhập hoặc mật khẩu không đúng, vui lòng kiểm tra lại!";
                     }
                     
+                    
+                }
+                if(!is_array($checkuser)){
+                    include "view/taikhoan/dangnhap.php";
+                }else{
+                    $_SESSION['user'] = $checkuser;
+                    // $thongbao = "Đăng nhập thành công!";
                 }
                 
-                include "view/taikhoan/dangnhap.php";
-                break;  
+                break;
+            case 'account':
+
+                include "view/taikhoan/account.php";
+                break;
             case 'edittk':
                 if (isset($_POST['capnhat'])&&($_POST['capnhat'])) {
                     $user = $_POST['user'];
@@ -108,7 +118,7 @@
                 break;         
             case 'thoat':
                 session_unset();
-                header("Location: index.php");
+                include "view/taikhoan/dangnhap.php";
                 break;
             case 'addtocart':
                 if(isset($_POST['addtocart'])&&($_POST['addtocart'])){

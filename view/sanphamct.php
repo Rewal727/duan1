@@ -1,43 +1,3 @@
-<!DOCTYPE html>
-<html lang="zxx">
-
-
-<!-- Mirrored from htmldemo.net/tuime/tuime/single-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:25:35 GMT -->
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tuime - Animal Food Website Template" />
-  <meta name="keywords" content="accessories, digital products, electronic html, modern, products, responsive" />
-  <meta name="author" content="hastech" />
-
-  <title>Products</title>
-
-  <!--== Favicon ==-->
-  <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon" />
-
-  <!--== Google Fonts ==-->
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600&amp;display=swap" rel="stylesheet">
-
-  <!--== Bootstrap CSS ==-->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <!--== Font Awesome Min Icon CSS ==-->
-  <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
-  <!--== 7 Stroke Icon CSS ==-->
-  <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-  <!--== Swiper CSS ==-->
-  <link href="../assets/css/swiper.min.css" rel="stylesheet" />
-  <!--== Fancybox Min CSS ==-->
-  <link href="../assets/css/fancybox.min.css" rel="stylesheet" />
-  <!--== Range Slider Min CSS ==-->
-  <link href="../assets/css/ion.rangeSlider.min.css" rel="stylesheet" />
-
-  <!--== Main Style CSS ==-->
-  <link href="../assets/css/style.css" rel="stylesheet" />
-</head>
 
 <body>
 
@@ -186,18 +146,7 @@
                         </div>
                       </div>
                       <p><?= $mota ?></p>
-                      <!-- <div class="product-single-meta">
-                      <ul>
-                        <li><span>SKU:</span> Ch-256xl</li>
-                        <li><span>Categories:</span> 
-                          <a href="shop.html">Pet Food. eCommerce</a>
-                        </li>
-                        <li><span>Tags:</span> 
-                          <a href="shop.html">Petfood. Pet</a>,
-                          <a href="shop.html">Animal.</a>
-                        </li>
-                      </ul>
-                    </div> -->
+        
                       <div class="product-quick-action">
                         <div class="qty-wrap">
                           <div class="pro-qty">
@@ -341,9 +290,19 @@
                                     </div>
                                   </div>
                                   <div class="product-action">
-                                    <button type="button" class="btn-product-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                      <i class="pe-7s-like"></i>
-                                    </button>
+                                        <form action="index.php?act=addtocart" method="POST">
+                                            <input type="hidden" name="id" value="' . $id . '">
+                                            <input type="hidden" name="name" value="' . $name . '">
+                                            <input type="hidden" name="img" value="' . $img . '">
+                                            <input type="hidden" name="price" value="' . $price . '">
+                                            <button type="submit" name="addtocart" value="Add">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="25" viewBox="0 0 576 512">
+                                            <!-- Biểu tượng giỏ hàng SVG của bạn -->
+                                            <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z"/>
+                                            </svg>
+                                            </button>
+                                      </form>  
+                                    
                                     <div class="product-action-links">
                                       <button type="button" class="btn-product-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
                                         <i class="pe-7s-shopbag"></i>
@@ -369,165 +328,10 @@
   <!--== Scroll Top Button ==-->
   <div id="scroll-to-top" class="scroll-to-top"><span class="fa fa-angle-up"></span></div>
 
-  <!--== Start Product Quick Wishlist Modal ==-->
-  <aside class="product-action-modal modal fade" id="action-WishlistModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="product-action-view-content">
-            <button type="button" class="btn-close" data-bs-dismiss="modal">
-              <i class="pe-7s-close"></i>
-            </button>
-            <div class="modal-action-messages">
-              <i class="pe-7s-check"></i> Added to wishlist successfully!
-            </div>
-            <div class="modal-action-product">
-              <div class="thumb">
-                <img src="assets/img/shop/modal1.jpg" alt="Organic Food Juice" width="466" height="320">
-              </div>
-              <h4 class="product-name"><a href="single-product.html">Joust Duffle Bag</a></h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </aside>
-  <!--== End Product Quick Wishlist Modal ==-->
-
-  <!--== Start Product Quick Add Cart Modal ==-->
-  <aside class="product-action-modal modal fade" id="action-CartAddModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="product-action-view-content">
-            <button type="button" class="btn-close" data-bs-dismiss="modal">
-              <i class="pe-7s-close"></i>
-            </button>
-            <div class="modal-action-messages">
-              <i class="pe-7s-check"></i> Added to cart successfully!
-            </div>
-            <div class="modal-action-product">
-              <div class="thumb">
-                <img src="assets/img/shop/modal1.jpg" alt="Organic Food Juice" width="466" height="320">
-              </div>
-              <h4 class="product-name"><a href="single-product.html">Joust Duffle Bag</a></h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </aside>
-  <!--== End Product Quick Add Cart Modal ==-->
-
-  <!--== Start Product Quick View Modal ==-->
-  <aside class="product-cart-view-modal modal fade" id="action-QuickViewModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="product-quick-view-content">
-            <button type="button" class="btn-close" data-bs-dismiss="modal">
-              <span class="pe-7s-close"></span>
-            </button>
-            <div class="container pt--0 pb--0">
-              <div class="row">
-                <div class="col-lg-6">
-                  <!--== Start Product Thumbnail Area ==-->
-                  <div class="product-single-thumb">
-                    <img src="assets/img/shop/quick-view1.jpg" width="544" height="560" alt="Image-HasTech">
-                  </div>
-                  <!--== End Product Thumbnail Area ==-->
-                </div>
-                <div class="col-lg-6">
-                  <!--== Start Product Info Area ==-->
-                  <div class="product-single-info">
-                    <h3 class="main-title">Joust Duffle Bag</h3>
-                    <div class="prices">
-                      <span class="price">$20.19</span>
-                    </div>
-                    <div class="rating-box-wrap">
-                      <div class="rating-box">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <div class="review-status">
-                        <a href="javascript:void(0)">(5 Customer Review)</a>
-                      </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
-                    <div class="product-single-meta">
-                      <ul>
-                        <li><span>SKU:</span> Ch-256xl</li>
-                        <li><span>Categories:</span>
-                          <a href="shop.html">Pet Food. eCommerce</a>
-                        </li>
-                        <li><span>Tags:</span>
-                          <a href="shop.html">Petfood. Pet</a>,
-                          <a href="shop.html">Animal.</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="product-quick-action">
-                      <div class="qty-wrap">
-                        <div class="pro-qty">
-                          <input type="text" title="Quantity" value="01">
-                        </div>
-                      </div>
-                      <button type="button" class="btn-product-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                        Add To Cart
-                      </button>
-                      <button type="button" class="btn-product-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                        <i class="pe-7s-like"></i>
-                      </button>
-                      <button type="button" class="btn-product-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                        <i class="pe-7s-look"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <!--== End Product Info Area ==-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </aside>
+  
   <!--== End Product Quick View Modal ==-->
 
   </div>
 
-  <!--=======================Javascript============================-->
-
-  <!--=== jQuery Modernizr Min Js ===-->
-  <script src="../assets/js/modernizr.js"></script>
-  <!--=== jQuery Min Js ===-->
-  <script src="../assets/js/jquery-main.js"></script>
-  <!--=== jQuery Migration Min Js ===-->
-  <script src="../assets/js/jquery-migrate.js"></script>
-  <!--=== jQuery Popper Min Js ===-->
-  <script src="../assets/js/popper.min.js"></script>
-  <!--=== jQuery Bootstrap Min Js ===-->
-  <script src="../assets/js/bootstrap.min.js"></script>
-  <!--=== jQuery Swiper Min Js ===-->
-  <script src="../assets/js/swiper.min.js"></script>
-  <!--=== jQuery Fancybox Min Js ===-->
-  <script src="../assets/js/fancybox.min.js"></script>
-  <!--=== jQuery Countdown Min Js ===-->
-  <script src="../assets/js/countdown.js"></script>
-  <!--=== jQuery Isotope Min Js ===-->
-  <script src="../assets/js/isotope.pkgd.min.js"></script>
-  <!--=== jQuery Range Slider Min Js ===-->
-  <script src="../assets/js/ion.rangeSlider.min.js"></script>
-
-  <!--=== jQuery Custom Js ===-->
-  <script src="../assets/js/custom.js"></script>
 
 </body>
-
-
-<!-- Mirrored from htmldemo.net/tuime/tuime/single-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:25:35 GMT -->
-
-</html>

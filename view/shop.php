@@ -1,7 +1,41 @@
 <!DOCTYPE html>
+<html lang="zxx">
+
+
+<!-- Mirrored from htmldemo.net/tuime/tuime/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:25:30 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tuime - Animal Food Website Template"/>
+    <meta name="keywords" content="accessories, digital products, electronic html, modern, products, responsive"/>
+    <meta name="author" content="hastech"/>
+
     <title>Sản phẩm</title>
-    
-    <link rel="stylesheet" href="../css/style.css">
+
+    <!--== Favicon ==-->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600&amp;display=swap" rel="stylesheet">
+
+    <!--== Bootstrap CSS ==-->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!--== Font Awesome Min Icon CSS ==-->
+    <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!--== 7 Stroke Icon CSS ==-->
+    <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <!--== Swiper CSS ==-->
+    <link href="../assets/css/swiper.min.css" rel="stylesheet" />
+    <!--== Fancybox Min CSS ==-->
+    <link href="../assets/css/fancybox.min.css" rel="stylesheet" />
+    <!--== Range Slider Min CSS ==-->
+    <link href="../assets/css/ion.rangeSlider.min.css" rel="stylesheet" />
+
+    <!--== Main Style CSS ==-->
+    <link href="../assets/css/style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -45,7 +79,7 @@
         <div class="row">
           <div class="col-12">
             <div class="page-header-content">
-              <h2 class="title">Products <strong><?=$tendm?></strong></h2>
+              <h2 class="title">Products</h2>
               <nav class="breadcrumb-area">
                 <ul class="breadcrumb">
                   <li><a href="index.html">Home</a></li>
@@ -111,9 +145,10 @@
                     <div class="row">
                       
                         <?php 
-              
+
+                            $spnew = loadall_sanpham();
                             $i = 0;
-                            foreach ($dssp as $sp){
+                            foreach ($spnew as $sp){
                               extract($sp);
                               $linksp = "index.php?act=sanphamct&idsp=" . $id;
                               $hinh = $img_path . $img;
@@ -130,32 +165,13 @@
                                 <span class="price">'.$price.' VNĐ</span>
                               </div>
                             </div>
-                            <div class="product-action">                      
-                              <form action="index.php?act=addtocart" method="POST">
-                                <input type="hidden" name="id" value="' . $id . '">
-                                <input type="hidden" name="name" value="' . $name . '">
-                                <input type="hidden" name="img" value="' . $img . '">
-                                <input type="hidden" name="price" value="' . $price . '">
-                                <button type="submit" name="addtocart" value="Add">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="25" viewBox="0 0 576 512">
-                                    <!-- Biểu tượng giỏ hàng SVG của bạn -->
-                                    <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z"/>
-                                    </svg>
-                                </button>
-                            </form>                                                          
-                              <div class="product-action-links">
-                                <button type="button" class="btn-product-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                  <i class="pe-7s-like"></i>
-                                </button>
-                              </div>
-                            </div>
                           </div>
                           </div>';
                             }
                             
 
                         ?>
-                      
+                    
                       
                       
                       
@@ -181,9 +197,77 @@
               </div>
             </div>
           </div>
-          <?php 
-            include "boxright.php";
-          ?>
+          <div class="col-xl-3">
+            <div class="shop-sidebar">
+              <div class="shop-sidebar-search">
+                <div class="sidebar-search-form">
+                  <form action="#">
+                    <input type="search" placeholder="Search Here">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="shop-widget shop-sidebar-price-range">
+                <h4 class="sidebar-title">Price Filter</h4>
+                <div class="sidebar-price-range">   
+                  <input type="text" class="js-range-slider" name="my_range" value="" data-type="double" data-min="0" data-max="3000" data-from="300" data-to="2500" />
+                </div>
+              </div>
+
+              <div class="shop-widget shop-sidebar-category">
+                <h4 class="sidebar-title">Categoris</h4>
+                <div class="sidebar-category">
+                  <ul class="category-list mb--0">
+                  <?php 
+                      $dsdm = loadall_danhmuc();
+                      foreach ($dsdm as $dm) {
+                      extract($dm);
+                      $linkdm = "index.php?act=sanpham&iddm=".$id;
+                      echo '<li>
+                                  <a href="' . $linkdm . '">' . $name . '</a>
+                                  </li>';
+                  } ?>
+                  </ul>
+                </div>
+              </div>
+              <div class="shop-widget shop-sidebar-color">
+                <h4 class="sidebar-title">Color</h4>
+                <div class="sidebar-color">
+                  <div class="color-list">
+                    <div data-bg-color="#ffd868"></div>
+                    <div class="active" data-bg-color="#721b65"></div>
+                    <div data-bg-color="#dd117e"></div>
+                    <div data-bg-color="#0aa5d2"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="shop-widget shop-sidebar-size">
+                <h4 class="sidebar-title">Size</h4>
+                <div class="sidebar-size">
+                  <div class="size-list">
+                    <div>S</div>
+                    <div class="active">M</div>
+                    <div>L</div>
+                    <div>XL</div>
+                  </div>
+                </div>
+              </div>
+              <div class="shop-widget shop-sidebar-tags">
+                <h4 class="sidebar-title">Tags</h4>
+                <div class="sidebar-tags">
+                  <ul class="tags-list mb--0">
+                    <li><a href="shop.html">Fashion</a></li>
+                    <li><a href="shop.html">Organic</a></li>
+                    <li><a href="shop.html">Old Fashion</a></li>
+                    <li><a href="shop.html">Men</a></li>
+                    <li><a href="shop.html">Fashion</a></li>
+                    <li><a href="shop.html">Dress</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -322,3 +406,35 @@
   <!--== End Product Quick View Modal ==-->
 
 </div>
+
+<!--=======================Javascript============================-->
+
+<!--=== jQuery Modernizr Min Js ===-->
+<script src="../assets/js/modernizr.js"></script>
+<!--=== jQuery Min Js ===-->
+<script src="../assets/js/jquery-main.js"></script>
+<!--=== jQuery Migration Min Js ===-->
+<script src="../assets/js/jquery-migrate.js"></script>
+<!--=== jQuery Popper Min Js ===-->
+<script src="../assets/js/popper.min.js"></script>
+<!--=== jQuery Bootstrap Min Js ===-->
+<script src="../assets/js/bootstrap.min.js"></script>
+<!--=== jQuery Swiper Min Js ===-->
+<script src="../assets/js/swiper.min.js"></script>
+<!--=== jQuery Fancybox Min Js ===-->
+<script src="../assets/js/fancybox.min.js"></script>
+<!--=== jQuery Countdown Min Js ===-->
+<script src="../assets/js/countdown.js"></script>
+<!--=== jQuery Isotope Min Js ===-->
+<script src="../assets/js/isotope.pkgd.min.js"></script>
+<!--=== jQuery Range Slider Min Js ===-->
+<script src="../assets/js/ion.rangeSlider.min.js"></script>
+
+<!--=== jQuery Custom Js ===-->
+<script src="../assets/js/custom.js"></script>
+
+</body>
+
+
+<!-- Mirrored from htmldemo.net/tuime/tuime/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2023 14:25:30 GMT -->
+</html>

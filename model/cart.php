@@ -32,7 +32,7 @@ function view_cart($del)
         }
 
         echo '<tr>
-                <td><img src="' . $hinh . '" height="80px"></td>
+                <td><img src="' . $hinh . '" height="60px" width="60px"></td>
                 <td>' . $cart[1] . '</td>
                 <td>' . $cart[3] . '</td>
                 <td>' . $cart[4] . '</td>
@@ -102,7 +102,7 @@ function chitiet_bill($listbill)
         $tong += $cart['thanhtien'];
 
         echo '<tr>
-                <td><img src="' . $hinh . '" height="80px"></td>
+                <td><img src="' . $hinh . '" height="60px" width="60px"></td>
                 <td>' . $cart['name'] . '</td>
                 <td>' . $cart['price'] . '</td>
                 <td>' . $cart['soluong'] . '</td>
@@ -150,7 +150,7 @@ function get_ttdh($n)
 {
     switch ($n) {
         case '0':
-            $tt = "Đơn hàng mới";
+            $tt = "Đơn hàng chờ xác nhận";
             break;
         case '1':
             $tt = "Đang xử lý";
@@ -165,12 +165,11 @@ function get_ttdh($n)
             $tt = "Đã hủy";
             break;
         default:
-            $tt = "Đơn hàng mới";
+            $tt = "Đơn hàng chờ xác nhận";
             break;
     }
     return $tt;
 }
-
 
 
 
@@ -179,7 +178,7 @@ function loadall_thongke()
     $sql = "select danhmuc.id as madm, danhmuc.name as tendm, count(sanpham.id) as countsp,
          min(sanpham.price) as minprice, max(sanpham.price) as maxprice, avg(sanpham.price) as avgprice";
     $sql .= " from sanpham left join danhmuc on danhmuc.id=sanpham.iddm";
-    $sql .= " group by danhmuc.id order by danhmuc.id desc";
+    $sql .= " group by danhmuc.id order by danhmuc.id";
     $listtk = pdo_query($sql);
     return $listtk;
 }

@@ -35,7 +35,7 @@
                         $countsp = loadall_cart_count($bill['id']);
                         $ttdh = get_ttdh($bill['bill_status']);
                         echo '<tr>
-                                <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" name="name[]" id="check_all"></td>
                                 <td>'.$bill['id'].'</td>
                                 <td>'.$khachhang.'</td>
                                 <td>'.$countsp.'</td>
@@ -51,10 +51,39 @@
                 
             </table>
         </div>
-        <div class="row margin-b10">
-            <input type="button" value="Chọn tất cả">
-            <input type="button" value="Bỏ chọn tất cả">
-            <input type="button" value="Xóa các mục đã chọn">
+        <div class="row margin-b10" style="display:inline-block;">
+            <input type="button" id="btn1" value="Chọn tất cả" style="width: 90px;">
+            <input type="button" id="btn2" value="Bỏ chọn tất cả" style="width: 100px;">
+            <input type="button" value="Xóa các mục đã chọn" style="width: 140px;">
         </div>
     </div>
 </div>
+
+
+<script language="javascript">
+ 
+            // Chức năng chọn hết
+            document.getElementById("btn1").onclick = function () 
+            {
+                // Lấy danh sách checkbox
+                var checkboxes = document.getElementsByName('name[]');
+ 
+                // Lặp và thiết lập checked
+                for (var i = 0; i < checkboxes.length; i++){
+                    checkboxes[i].checked = true;
+                }
+            };
+ 
+            // Chức năng bỏ chọn hết
+            document.getElementById("btn2").onclick = function () 
+            {
+                // Lấy danh sách checkbox
+                var checkboxes = document.getElementsByName('name[]');
+ 
+                // Lặp và thiết lập Uncheck
+                for (var i = 0; i < checkboxes.length; i++){
+                    checkboxes[i].checked = false;
+                }
+            };
+ 
+</script>

@@ -29,10 +29,10 @@
                         <textarea name="mota" cols="30" rows="10"></textarea>
                     </div>
 
-                    <div class="row margin-b10">
-                        <input type="submit" name="themmoi" value="THÊM MỚI">
-                        <input type="reset" value="NHẬP LẠI">
-                        <a href="index.php?act=listsp"><input type="button" value="DANH SÁCH"></a>  
+                    <div class="row margin-b10" style="display:inline-block;">
+                        <input type="submit" name="themmoi" value="THÊM MỚI" style="width: 100px;">
+                        <input type="reset" value="NHẬP LẠI" name="reset" style="width: 100px;">
+                        <a href="index.php?act=listsp"><input type="button" name="list" value="DANH SÁCH"></a>  
                     </div>
                     <?php
                         if (isset($thongbao)&&($thongbao!="")) echo $thongbao;

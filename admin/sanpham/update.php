@@ -47,10 +47,9 @@ if (is_file($img_path)) {
                 <textarea name="mota" cols="30" rows="10" value="<?=$mota?>"></textarea>
             </div>
 
-            <div class="row margin-b10">
-                <input type="hidden" name="id" value="<?=$id?>">
-                <input type="submit" name="capnhat" value="CẬP NHẬT">
-                <input type="reset" value="NHẬP LẠI">
+            <div class="row margin-b10" style="display:inline-block;">
+                <input type="hidden" name="id" value="<?= $id ?>">
+                <input type="submit" name="capnhat" value="CẬP NHẬT" style="width: 100px;">
                 <a href="index.php?act=listsp"><input type="button" value="DANH SÁCH"></a>
             </div>
             <?php

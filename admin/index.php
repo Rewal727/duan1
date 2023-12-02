@@ -133,6 +133,31 @@
                 $listtk = loadall_taikhoan();
                 include "taikhoan/listtk.php";
                 break;
+            case 'suatk':
+                if (isset($_GET['id']) && ($_GET['id']>0)) {
+                    $taikhoan = loadone_taikhoan($_GET['id']);
+                }              
+                $listtk = loadall_taikhoan();
+                include "taikhoan/edittk.php";
+                break;
+                break;
+            case 'updatetk':
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                    $id = $_POST['id'];
+                    $user = $_POST['user'];
+                    $address = $_POST['address'];
+                    $tel = $_POST['tel'];
+                    $email = $_POST['email'];
+                    $pass = $_POST['pass'];
+                    $role = $_POST['role'];
+                    
+                    update_taikhoan_role($id, $user, $pass, $email, $address, $tel, $role);
+                    $thongbao = "Cập nhật thành công";
+                }
+
+                $listtk = loadall_taikhoan();
+                include "taikhoan/listtk.php";
+                break;
             case 'dsbl':
                 $listbl = loadall_binhluan(0);
                 include "binhluan/listbl.php";

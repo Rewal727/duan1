@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row boxphai margin-b">
     <div id="piechart"></div>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -30,7 +30,7 @@
     ]);
 
     // Optional; add a title and set the width and height of the chart
-    var options = {'title':'Biểu đồ thống kê sản phẩm theo danh mục', 'width':900, 'height':450};
+    var options = {'title':'Biểu đồ thống kê sản phẩm theo danh mục', 'width':500, 'height':250};
 
     // Display the chart inside the <div> element with id="piechart"
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));

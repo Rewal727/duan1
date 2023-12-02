@@ -85,9 +85,9 @@
                   </li>
                   <li class="has-submenu"><a href="#"><span>Giới thiệu</span></a></li>
                   <li><a href="contact.html"><span>Liên hệ</span></a></li>
-                  <li class="has-submenu"><a href="index.php?act=dangnhap"><span>Tài khoản</span></a>
+                  <li class="has-submenu"><a href="index.php?act=account"><span>Tài khoản</span></a>
                     <ul class="submenu-nav">
-                      <li><a href="account.html"><span>Trang cá nhân</span></a></li>
+                      <li><a href="index.php?act=account"><span>Trang cá nhân</span></a></li>
                       <li><a href="index.php?act=edittk"><span>Cập nhật tài khoản</span></a></li>
                       <li><a href="index.php?act=dangnhap"><span>Đăng nhập</span></a></li>
                       <li><a href="index.php?act=dangky"><span>Đăng ký</span></a></li>
@@ -102,7 +102,7 @@
                   <button class="shopping-search-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch"><i class="pe-7s-search icon"></i></button>
                 </div>
                 <div class="shopping-account">
-                  <a class="shopping-account-btn" href="index.php?act=dangnhap">
+                  <a class="shopping-account-btn" href="index.php?act=account">
                     <i class="pe-7s-users icon"></i>
                   </a>
                 </div>

@@ -83,7 +83,7 @@
         <div class="row">
           <div class="col-12">
             <div class="page-header-content">
-              <h2 class="title">Trang tài khoản</h2>
+              <h2 class="title">Đăng ký</h2>
               <nav class="breadcrumb-area">
                 <ul class="breadcrumb">
                   <li>Đăng ký</li>

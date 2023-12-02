@@ -134,8 +134,8 @@
                     </div>
                 </a>
                 <ul>
-                    <li><a href="../Fontawesome_Icon.html">Fontawesome Icon</a></li>
-                    <li><a href="../themefy_icon.html">themefy icon</a></li>
+                    <li><a href="index.php?act=thongke">Bảng thống kê</a></li>
+                    <li><a href="index.php?act=bieudo">Biểu đồ</a></li>
                 </ul>
             </li>
             <li class>

@@ -31,4 +31,28 @@
         $sql = "delete from taikhoan where id=".$id;
         pdo_execute($sql);
     }
+
+    function update_taikhoan_role($id, $user, $pass, $email, $address, $tel, $role){
+        $sql = "update taikhoan set user='".$user."', pass='".$pass."', email='".$email."', address='".$address."', tel='".$tel."', role='".$role."' where id =".$id;
+        pdo_execute($sql);
+    }
+
+    function loadone_taikhoan($id){
+        $sql = "select * from taikhoan where id =".$id;
+        $taikhoan = pdo_query_one($sql);
+        return $taikhoan;
+    }
+
+    function get_role($n)
+{
+    switch ($n) {
+        case '0':
+            $tt = "Người dùng";
+            break;
+        case '1':
+            $tt = "Admin";
+            break;
+    }
+    return $tt;
+}
 ?>
