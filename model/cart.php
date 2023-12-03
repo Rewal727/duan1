@@ -1,7 +1,7 @@
 
 <?php
 function view_cart($del)
-{
+{   
     global $img_path;
     $tong = 0;
     $i = 0;
@@ -184,5 +184,16 @@ function loadall_thongke()
 }
 
 
+// function loadall_billct($id)
+// {
+//   $sql = "SELECT * FROM bill LEFT JOIN cart ON bill.id = cart.idbill";
+  
+//   $result = pdo_query($sql);
+  
+//   return $result;
+// }
 
+// function trangthai($bill_status){
+
+// }
 ?>

@@ -9,8 +9,8 @@
         pdo_execute($sql);
     }
 
-    function loadall_sanpham_top10(){
-        $sql = "select * from sanpham where 1 order by luotxem desc limit 0,10";
+    function loadall_sanpham_top6(){
+        $sql = "select * from sanpham where 1 order by luotxem desc limit 0,6";
         $listsp = pdo_query($sql);
         return $listsp;
     }

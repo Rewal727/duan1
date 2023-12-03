@@ -45,12 +45,12 @@
         <div class="row">
           <div class="col-12">
             <div class="page-header-content">
-              <h2 class="title">Sản phẩm: <strong><?=$tendm?></strong></h2>
+              <h2 class="title">Products <strong><?=$tendm?></strong></h2>
               <nav class="breadcrumb-area">
                 <ul class="breadcrumb">
                   <li><a href="index.html">Home</a></li>
                   <li class="breadcrumb-sep">//</li>
-                  <li>Sản phẩm</li>
+                  <li>Products</li>
                 </ul>
               </nav>
             </div>
@@ -77,6 +77,18 @@
                     <button class="nav-link" id="nav-grid2-tab" data-bs-toggle="tab" data-bs-target="#nav-grid2" type="button" role="tab" aria-controls="nav-grid2" aria-selected="false"><i class="fa fa-th-large"></i></button>
                   </div>
                 </nav>
+              </div>
+              <div class="shop-top-right">
+                <div class="shop-sort">
+                  <span>Sort By :</span>
+                  <select class="form-select" aria-label="Sort select example">
+                    <option selected>Default</option>
+                    <option value="1">Popularity</option>
+                    <option value="2">Average Rating</option>
+                    <option value="3">Newsness</option>
+                    <option value="4">Price Low to High</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -120,7 +132,6 @@
                             </div>
                             <div class="product-action">                      
                               <form action="index.php?act=addtocart" method="POST">
-                                <input type="hidden" name="amount" id="amount" value="1">
                                 <input type="hidden" name="id" value="' . $id . '">
                                 <input type="hidden" name="name" value="' . $name . '">
                                 <input type="hidden" name="img" value="' . $img . '">

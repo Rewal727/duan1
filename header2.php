@@ -75,9 +75,15 @@
                     <ul class="submenu-nav submenu-nav-mega column-3">
                       <li class="mega-menu-item"><a href="#/" class="mega-title"><span>Menu</span></a>
                         <ul>
-                          <li><a href="#"><span>Trà sữa</span></a></li>
-                          <li><a href="#"><span>Kem</span></a></li>
-                          <li><a href="#"><span>Đồ ăn vặt</span></a></li>
+                          <?php
+                            $dsdm = loadall_danhmuc();
+                            foreach ($dsdm as $dm) {
+
+                                extract($dm);
+                                $linkdm = "index.php?act=sanpham&iddm=" . $id;
+                                echo '<li><a href="' . $linkdm . '"><span>' . $name . '</span></a></li>';
+                            }
+                            ?>
                         </ul>
                       </li>
 

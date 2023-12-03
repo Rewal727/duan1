@@ -25,4 +25,9 @@
         $sql = "update danhmuc set name='".$tenloai."' where id =".$id;
         pdo_execute($sql);
     }
+
+    function load_menu_danhmuc($id){
+        $sql = "select * from sanpham where iddm='".$id."'";
+        pdo_query($sql);
+    }
 ?>
