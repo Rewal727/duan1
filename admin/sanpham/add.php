@@ -14,15 +14,15 @@
                     </div>
                     <div class="row margin-b10">
                         Tên sản phẩm <br>
-                        <input type="text" name="tensp">
+                        <input type="text" name="tensp" required>
                     </div>
                     <div class="row margin-b10">
                         Giá <br>
-                        <input type="text" name="giasp">
+                        <input type="text" name="giasp" required>
                     </div>
                     <div class="row margin-b10">
                         Hình <br>
-                        <input type="file" name="hinh">
+                        <input type="file" name="hinh" required>
                     </div>
                     <div class="row margin-b10">
                         Mô tả <br>

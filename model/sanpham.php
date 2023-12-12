@@ -15,6 +15,12 @@
         return $listsp;
     }
 
+    function loadall_sanpham_top4(){
+        $sql = "select * from sanpham where 1 order by luotxem desc limit 0,4";
+        $listsp = pdo_query($sql);
+        return $listsp;
+    }
+
     function loadall_sanpham_home(){
         $sql = "select * from sanpham where 1 order by id desc limit 12";
         $listsp = pdo_query($sql);
@@ -64,5 +70,12 @@
             $sql = "update sanpham set iddm='".$iddm."', name='".$tensp."', price='".$giasp."', mota='".$mota."' where id =".$id;
         }
         pdo_execute($sql);
+    }
+
+
+
+    function product_update_quantity($quantity,$idpro){
+        $sql = "update sanpham set soluong = soluong - ? where id = ?";
+        pdo_execute($sql,$quantity,$idpro);
     }
 ?>

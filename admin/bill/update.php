@@ -2,7 +2,6 @@
 if (is_array($bill)) {
     extract($bill);
 }
-$soluong = loadall_cart_count($bill['id']);
 ?>
 <div class="padding-l boxphai margin-b">
     <div class="row formtitle">
@@ -13,23 +12,21 @@ $soluong = loadall_cart_count($bill['id']);
       <label for="name" class="form-label">Mã đơn hàng</label>
       <input type="text" class="form-control" name="id" value=" <?= $id; ?>" readonly> 
       <label for="name" class="form-label">Người đặt hàng:</label>
-      <input readonly type="text" name="user" value="  <?= $bill_name; ?>" id="">
+      <input readonly type="text" name="user" class="form-control" value="  <?= $bill_name; ?>" id="">
       <label for="name" class="form-label">Địa chỉ:</label>
-      <input readonly type="text" name="address" value=" <?= $bill_address; ?>" id="">
+      <input readonly type="text" name="address" class="form-control" value=" <?= $bill_address; ?>" id="">
       <label for="name" class="form-label"> Email:</label>
-      <input readonly type="text" name="email" value="   <?= $bill_email; ?>" id="">
+      <input readonly type="text" name="email" class="form-control" value="   <?= $bill_email; ?>" id="">
       <label for="name" class="form-label"> Số điện thoại:</label>
-      <input readonly type="text" name="tel" value=" <?= $bill_tel; ?>" id="">
-      <label for="name" class="form-label">Số lượng đơn:</label>
-      <input readonly type="text" name="soluong" value=" <?= $soluong; ?>" id="">
+      <input readonly type="text" name="tel" class="form-control" value=" <?= $bill_tel; ?>" id="">
       <label for="name" class="form-label">Tổng tiền: </label>
-      <input readonly type="text" name="total" value="<?= $total; ?>" id="">
+      <input readonly type="text" class="form-control" name="total" value="<?= $total; ?>" id="">
       <label for="name" class="form-label"> Ngày đặt: </label>
-      <input readonly type="text" name="ngaydathang" value="<?= $ngaydathang; ?>" id="">
+      <input readonly type="text" class="form-control" name="ngaydathang" value="<?= $ngaydathang; ?>" id="">
 
     <div class="mb10 ">
       <label for="name" class="form-label">Tình trạng đơn hàng</label>
-      <select  style="width: 100%;"  class="form-select" name="status" aria-label="Default select example">
+      <select  style="width: 100%;"  class="form-select" name="status" <?= ($bill_status == 3) ? "disabled" : ""; ?> aria-label="Default select example">
         <option value="0" <?php echo ($bill_status == 0) ? "selected" : ""; ?>>
           Đơn hàng chờ xác nhận
         </option>

@@ -1,12 +1,17 @@
 <?php 
+    include "header.php";
+    include "sidebar.php";
+    include "nav.php";
+
+    include "../controller/controller.php";
     include "../model/pdo.php";
     include "../model/danhmuc.php";
     include "../model/sanpham.php";
     include "../model/taikhoan.php";
     include "../model/binhluan.php";
     include "../model/cart.php";
+    include "../model/thongke.php";
 
-    include "header.php";
     //controller
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
@@ -197,25 +202,24 @@
                     $ngaydathang = $_POST['ngaydathang'];
                     
                     update_bill($id, $bill_name, $bill_address, $bill_tel, $bill_email, $total, $bill_status, $ngaydathang);
+                    if($bill_status == 3) {
+                        update_trangthai($id);
+                    }
                     $thongbao = "Cập nhật thành công";
                 }
                 $listbill = loadall_bill("",0);
                 include "bill/listbill.php";
                 break;
-            case 'xoadh':
-                if (isset($_GET['id']) && ($_GET['id']>0)) {
-                    delete_donhang($_GET['id']);
-                }
-                $listbill = loadall_bill("",0);
-                include "bill/listbill.php";
+            case 'chitiet':
+                $idorder = $_GET['id'] ?? 0;
+                $listbill_chitiet = load_bill_admin($idorder);
+
+                include "bill/chitiet_bill.php";
                 break;
+                
             case 'thongke':
-                $thongke = loadall_thongke();
-                include "thongke/list.php";
-                break;
-            case 'bieudo':
-                $bieudo = loadall_thongke();
-                include "thongke/bieudo.php";
+                $tk = tk_hang_hoa();
+                renderAD('thong_ke/list',['tks'=>$tk]);
                 break;
             default:
                 include "home.php";
@@ -228,20 +232,3 @@
     include "footer.php";
     
 ?>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Trang Admin - VHT</title>
-</head>
-<body>
-    <div class="padding-l boxphai margin-b">
-        <div class="row formtitle margin-b">
-            <h1>Control Page</h1>
-        </div>
-    </div>
-</body>
-</html> -->

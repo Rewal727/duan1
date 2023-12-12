@@ -109,19 +109,19 @@
                   <div class="col-12">
                     <div class="form-group">
                       <label for="username">Username <span class="required">*</span></label>
-                      <input id="username" name="user" class="form-control" type="text">
+                      <input id="username" name="user" class="form-control" type="text" required>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
                       <label for="email">Email address <span class="required">*</span></label>
-                      <input id="email" name="email" class="form-control" type="email">
+                      <input id="email" name="email" class="form-control" type="email" required>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
                       <label for="password">Password <span class="required">*</span></label>
-                      <input id="password" name="pass" class="form-control" type="password">
+                      <input id="password" name="pass" class="form-control" type="password" required>
                     </div>
                   </div>
                   <div class="col-12">

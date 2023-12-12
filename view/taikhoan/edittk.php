@@ -114,19 +114,19 @@
                   <div class="col-12">
                     <div class="form-group">
                       <label for="username">Tên đăng nhập <span class="required">*</span></label>
-                      <input id="username" name="user" class="form-control" type="text" value="<?=$user?>">
+                      <input id="username" name="user" required class="form-control" type="text" value="<?=$user?>">
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
                       <label for="email">Email <span class="required">*</span></label>
-                      <input id="email" name="email" class="form-control" type="email" value="<?=$email?>">
+                      <input id="email" name="email" required class="form-control" type="email" value="<?=$email?>">
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
                       <label for="password">Mật khẩu <span class="required">*</span></label>
-                      <input id="password" name="pass" class="form-control" type="password" value="<?=$pass?>">
+                      <input id="password" name="pass" required class="form-control" type="password" value="<?=$pass?>">
                     </div>
                   </div>
                   <div class="col-12">

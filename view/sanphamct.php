@@ -78,49 +78,18 @@
                               <img src="<?= $hinh ?>" width="570" height="675" alt="Image-HasTech">
                             </a>
                           </div>
-                          <div class="swiper-slide">
-                            <a class="lightbox-image" data-fancybox="gallery" href="assets/img/shop/product-single/2.jpg">
-                              <img src="assets/img/shop/product-single/2.jpg" width="570" height="675" alt="Image-HasTech">
-                            </a>
-                          </div>
-                          <div class="swiper-slide">
-                            <a class="lightbox-image" data-fancybox="gallery" href="assets/img/shop/product-single/3.jpg">
-                              <img src="assets/img/shop/product-single/3.jpg" width="570" height="675" alt="Image-HasTech">
-                            </a>
-                          </div>
-                          <div class="swiper-slide">
-                            <a class="lightbox-image" data-fancybox="gallery" href="assets/img/shop/product-single/4.jpg">
-                              <img src="assets/img/shop/product-single/4.jpg" width="570" height="675" alt="Image-HasTech">
-                            </a>
-                          </div>
                         </div>
                       </div>
                       <div class="product-single-swiper-wrap position-relative">
                         <div class="swiper single-product-nav single-product-nav-slider">
                           <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                              <img src="<?= $hinh ?>" width="127" height="127" alt="Image-HasTech">
-                            </div>
-                            <div class="swiper-slide">
-                              <img src="assets/img/shop/product-single/nav2.jpg" width="127" height="127" alt="Image-HasTech">
-                            </div>
-                            <div class="swiper-slide">
-                              <img src="assets/img/shop/product-single/nav3.jpg" width="127" height="127" alt="Image-HasTech">
-                            </div>
-                            <div class="swiper-slide">
-                              <img src="assets/img/shop/product-single/nav4.jpg" width="127" height="127" alt="Image-HasTech">
-                            </div>
+                            
+                            
+                        
                           </div>
                         </div>
                         <!--== Add Swiper Arrows ==-->
-                        <div class="single-swiper-btn-wrap">
-                          <div class="swiper-btn-prev">
-                            <i class="fa fa-angle-left"></i>
-                          </div>
-                          <div class="swiper-btn-next">
-                            <i class="fa fa-angle-right"></i>
-                          </div>
-                        </div>
+                        
                       </div>
                     </div>
                     <!--== End Product Thumbnail Area ==-->
@@ -150,25 +119,15 @@
                       <?php
                         echo '
                         <form action="index.php?act=addtocart" method="post">
-                            <input style="width: 40px; text-align:center;" type="text" name="" onclick="handleMinus()" value="-" readonly>
-                            <input style="width: 40px; text-align:center;" type="text" name="amount" id="amount" value="1">
-                            <input style="width: 40px; text-align:center;" type="text" name="" onclick="handlePlus()" value="+" readonly>
+                            <label for="qty">Số lượng:</label>
+                            <input style="width: 80px; text-align: center;" type="number" name="soluong" id="sst" max="3" value="1" min="1" title="Số lượng:" class="input-text qty" />
                             <input type="hidden" name="id" value="' . $id . '">
                             <input type="hidden" name="name" value="' . $name . '">
                             <input type="hidden" name="img" value="' . $img . '">
                             <input type="hidden" name="price" value="' . $price . '">
-                            <input type="submit" name="addtocart" value="Thêm vào giỏ hàng" class="btn-product-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
+                            <input style="width: auto;" type="submit" name="addtocart" value="Thêm vào giỏ" class="btn-product-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
                         </form>';
                         ?>
-
-
-
-                        <button type="button" class="btn-product-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                          <i class="pe-7s-like"></i>
-                        </button>
-                        <button type="button" class="btn-product-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                          <i class="pe-7s-look"></i>
-                        </button>
                       </div>
 
 
@@ -186,13 +145,13 @@
                       <div class="product-review-tabs-content">
                         <ul class="nav product-tab-nav" id="ReviewTab" role="tablist">
                           <li role="presentation">
-                            <a class="active" id="information-tab" data-bs-toggle="pill" href="#information" role="tab" aria-controls="information" aria-selected="true">Information</a>
+                            <a class="active" id="information-tab" data-bs-toggle="pill" href="#information" role="tab" aria-controls="information" aria-selected="true">Thông tin</a>
                           </li>
                           <li role="presentation">
-                            <a id="description-tab" data-bs-toggle="pill" href="#description" role="tab" aria-controls="description" aria-selected="false">Description</a>
+                            <a id="description-tab" data-bs-toggle="pill" href="#description" role="tab" aria-controls="description" aria-selected="false">Mô tả</a>
                           </li>
                           <li role="presentation">
-                            <a id="reviews-tab" data-bs-toggle="pill" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews (05)</a>
+                            <a id="reviews-tab" data-bs-toggle="pill" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Bình luận</a>
                           </li>
                         </ul>
                         <div class="tab-content product-tab-content" id="ReviewTabContent">
@@ -300,14 +259,6 @@
                                             </button>
                                       </form>  
                                     
-                                    <div class="product-action-links">
-                                      <button type="button" class="btn-product-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                        <i class="pe-7s-shopbag"></i>
-                                      </button>
-                                      <button type="button" class="btn-product-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                        <i class="pe-7s-look"></i>
-                                      </button>
-                                    </div>
                                   </div>
                                 </div>
                               </div>';
@@ -332,32 +283,3 @@
 
 
 </body>
-
-
-
-<script>
-    let amountElement = document.getElementById('amount');
-    let amount = amountElement.value;
-    // console.log(amount);
-    let render = (amount) => {
-        amountElement.value = amount
-    }
-    //HandelPlus
-    let handlePlus = () => {
-        amount++;
-        render(amount);
-    }
-    //handel Minus
-    let handleMinus = () => {
-        if (amount > 1)
-            amount--;
-        render(amount);
-    }
-    amountElement.addEventListener('input', () => {
-        amount = amountElement.value;
-        amount = parseInt(amount);
-        amount = (isNaN(amount) || amount == 0) ? 1 : amount;
-        render(amount);
-
-    });
-</script>

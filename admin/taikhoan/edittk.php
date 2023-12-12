@@ -17,15 +17,15 @@ if (isset($_SESSION['user']) && (is_array($_SESSION['user']))) {
         <form action="index.php?act=updatetk" method="post">
             <div class="row margin-b10">
                 Tên tài khoản <br>
-                <input type="text" name="user" value="<?= $user ?>">
+                <input type="text" name="user" value="<?= $user ?>" required>
             </div>
             <div class="row margin-b10">
                 Mật khẩu <br>
-                <input type="password" name="pass" value="<?= $pass ?>">
+                <input type="password" name="pass" value="<?= $pass ?>" required>
             </div>
             <div class="row margin-b10">
                 Email <br>
-                <input type="email" name="email" value="<?= $email ?>">
+                <input type="email" name="email" value="<?= $email ?>" required>
             </div>
             <div class="row margin-b10">
                 Địa chỉ <br>

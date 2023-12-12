@@ -15,10 +15,10 @@
                 <tr>
                     <th></th>
                     <th>MÃ ĐƠN HÀNG</th>
-                    <th>KHÁCH HÀNG</th>
-                    <th>SỐ LƯỢNG</th>
-                    <th>GIÁ TIỀN</th>
+                    <th style="width: 310px;">KHÁCH HÀNG</th>
                     <th>TRẠNG THÁI ĐƠN HÀNG</th>
+                    <th>TÌNH TRẠNG</th>
+                    <th>TỔNG ĐƠN</th>
                     <th>NGÀY ĐẶT HÀNG</th>
                     <th>THAO TÁC</th>
                 </tr>
@@ -27,23 +27,33 @@
                     foreach($listbill as $bill){
                         extract($bill);
                         $suadh = "index.php?act=suadh&id=". $id;
-                        $xoadh = "index.php?act=xoadh&id=". $id;
+                        $chitiet = "index.php?act=chitiet&id=". $id;
                         $khachhang = $bill['bill_name'].'
                                         <br> '.$bill['bill_email'].'
                                         <br> '.$bill['bill_address'].'       
                                         <br> '.$bill['bill_tel'];
                         $countsp = loadall_cart_count($bill['id']);
                         $ttdh = get_ttdh($bill['bill_status']);
-                        echo '<tr>
+                        ?>
+                            <tr>
                                 <td><input type="checkbox" name="name[]" id="check_all"></td>
-                                <td>'.$bill['id'].'</td>
-                                <td>'.$khachhang.'</td>
-                                <td>'.$countsp.'</td>
-                                <td><strong>'.$bill['total'].'</strong></td>
-                                <td>'.$ttdh.'</td>
-                                <td>'.$bill['ngaydathang'].'</td>
-                                <td><a href=' . $suadh . '><input type="button" value="Sửa"></a> <a href=' . $xoadh . '><input type="button" value="Xóa"></a></td>
-                            </tr>';
+                                <td><?= $bill['id'] ?></td>
+                                <td><?= $khachhang ?></td>
+                                <td><?= $ttdh ?></td>
+                                <td>
+                                    <?php
+                                        if($bill['payment_status'] == 0) {
+                                            echo "Chưa thanh toán";
+                                        } else {
+                                            echo "Đã thanh toán";
+                                        }
+                                    ?>
+                                </td>
+                                <td><?= $bill['total'] ?></td>
+                                <td><?= $bill['ngaydathang'] ?></td>
+                                <td><a href='<?= $suadh ?>'><input type="button" value="Sửa"></a> <a href='<?= $chitiet ?>'><input type="button" value="Chi tiết"></a></td>
+                            </tr>
+                        <?php
                     }
                 ?>
 

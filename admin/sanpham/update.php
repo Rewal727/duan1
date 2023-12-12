@@ -31,15 +31,15 @@ if (is_file($img_path)) {
             </div>
             <div class="row margin-b10">
                 Tên sản phẩm <br>
-                <input type="text" name="tensp" value="<?=$name?>">
+                <input type="text" name="tensp" required value="<?=$name?>">
             </div>
             <div class="row margin-b10">
                 Giá <br>
-                <input type="text" name="giasp" value="<?=$price?>">
+                <input type="text" name="giasp" required value="<?=$price?>">
             </div>
             <div class="row margin-b10">
                 Hình <br>
-                <input type="file" name="hinh">
+                <input type="file" name="hinh" required>
                 <?=$hinh?>
             </div>
             <div class="row margin-b10">

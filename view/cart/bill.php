@@ -117,35 +117,35 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="f_name">Tên người đặt hàng<abbr class="required" title="required">*</abbr></label>
-                        <input id="f_name" type="text" name="user" class="form-control" value="<?=$user?>">
+                        <input id="f_name" type="text" required name="user" class="form-control" value="<?=$user?>">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="phone">Số điện thoại</label>
-                        <input id="phone" type="text" name="tel" value="<?=$tel?>" class="form-control">
+                        <input id="phone" type="text" required name="tel" value="<?=$tel?>" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group" data-margin-bottom="30">
                         <label for="email">Email<abbr class="required" title="required">*</abbr></label>
-                        <input id="email" name="email" value="<?=$email?>" type="text" class="form-control">
+                        <input id="email" name="email" required value="<?=$email?>" type="text" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="street-address">Địa chỉ <abbr class="required" title="required">*</abbr></label>
-                        <input id="street-address" name="address" type="text" class="form-control" placeholder="House number and street name" value="<?=$address?>">
+                        <input id="street-address" required name="address" type="text" class="form-control" placeholder="House number and street name" value="<?=$address?>">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group mb--0">
-                        <label for="order-notes">Order notes (optional)</label>
+                        <label for="order-notes">Ghi chu' (optional)</label>
                         <textarea id="order-notes" name="note" class="form-control" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                       </div>
                     </div>
                   </div>
-                
+              
               </div>
             </div>
             <!--== End Billing Accordion ==-->
@@ -156,15 +156,56 @@
               <div class="order-details-table-wrap table-responsive">
                 <h2 class="title mb-25">Thông tin đơn hàng</h2>
                 <table class="table">
-                  <?php
-                  view_cart(0);
-                  ?>
+                                <?php
+                                    $tong = 0;
+                                    $ship = 15000;
+                                    $_SESSION['ship'] = $ship;
+                                    foreach ($_SESSION['mycart'] as $idpro => $product) :
+                                        extract($product);
+                                        $tong += $total_price;
+                                ?>
+                                <input type="hidden" name="ship" value="<?= $ship ?>">
+                                <ul class="list">
+                                  <li><img src="./upload/<?= $img  ?>" alt="" width="70px"></li>
+                                  <input type="hidden" name="imgol" value=<?= $img ?>>
+                                <li>
+                                        <a href="#" style="color: black; font-weight:700;"><?= $name ?>
+                                            <span class="middle">x <?= $soluong ?></span>
+                                            <span> - </span>
+                                            <span style="color:red;" class="last"><?= number_format($total_price, 0, ',', '.') ?>đ</span>
+                                        </a>
+                                    </li>
+                                <?php endforeach ?>
+                                </ul>
+                                <span>----------------------------</span>
+                                <ul class="list list_2">
+                                <li>
+                                    <a href="#" style="color: black; font-weight:700;">Tổng cộng:
+                                        <span style="color:red;"><?= number_format($tong, 0, ',', '.') ?>đ</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color: black; font-weight:700;">Phí ship mặc định:
+                                        <span style="color:red;"> <?= number_format($ship, 0, ',', '.') ?>đ</span>
+                                    </a>
+                                </li>
+                                <?php 
+                                    $total = $tong + $ship;
+                                    ?>
+                                <li>
+                                    <a href="#" style="color: black; font-weight:700;">Thanh Toán Tổng:
+                                        <span style="color:red;" ><?= number_format($total, 0, ',', '.') ?>đ</span>
+                                        <input type="hidden" name="total" value="<?= $total ?>">
+                                    </a>
+                                </li>
+                            </ul>
                 </table>
                 <div class="shop-payment-method">
                   <div id="PaymentMethodAccordion">
                     <div class="card">
                       <div class="card-header" id="check_payments">
-                        <h5 data-bs-toggle="collapse" data-bs-target="#itemOne" aria-controls="itemOne" aria-expanded="true"><input type="radio" value="1" name="pttt" checked> Chuyển khoản ngân hàng</h5>
+                        <h5 data-bs-toggle="collapse" data-bs-target="#itemOne" aria-controls="itemOne" aria-expanded="true">
+                          <input type="radio" value="1" name="pttt" checked> Chuyển khoản ngân hàng</h5>
                       </div>
                       <div id="itemOne" class="collapse show" aria-labelledby="check_payments" data-bs-parent="#PaymentMethodAccordion">
                         <div class="card-body">
@@ -174,7 +215,8 @@
                     </div>
                     <div class="card">
                       <div class="card-header" id="check_payments3">
-                        <h5 data-bs-toggle="collapse" data-bs-target="#itemThree" aria-controls="itemTwo" aria-expanded="false"><input type="radio" value="2" name="pttt"> Thanh toán khi nhận hàng</h5>
+                        <h5 data-bs-toggle="collapse" data-bs-target="#itemThree" aria-controls="itemTwo" aria-expanded="false">
+                          <input type="radio" value="2" name="pttt"> Thanh toán khi nhận hàng</h5>
                       </div>
                       <div id="itemThree" class="collapse" aria-labelledby="check_payments3" data-bs-parent="#PaymentMethodAccordion">
                         <div class="card-body">
@@ -184,7 +226,8 @@
                     </div>
                     <div class="card">
                       <div class="card-header" id="check_payments4">
-                        <h5 data-bs-toggle="collapse" data-bs-target="#itemFour" aria-controls="itemTwo" aria-expanded="false"><input type="radio" value="3" name="pttt"> Thanh toán với thẻ tín dụng</h5>
+                        <h5 data-bs-toggle="collapse" data-bs-target="#itemFour" aria-controls="itemTwo" aria-expanded="false">
+                          <input type="radio" value="3" name="pttt"> Thanh toán với thẻ tín dụng</h5>
                       </div>
                       <div id="itemFour" class="collapse" aria-labelledby="check_payments4" data-bs-parent="#PaymentMethodAccordion">
                         <div class="card-body">
@@ -196,7 +239,7 @@
                   <p class="p-text">Thông tin của bạn sẽ được dùng để hỗ trợ trong việc giao hàng, đồng thời giúp cho trải nghiệm của bạn với website. Mọi chi tiết đã được nêu tại <a href="#/">chính sách quyền riêng tư của chúng tôi.</a></p>
                   <div class="agree-policy">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" id="privacy" class="custom-control-input visually-hidden">
+                      <input type="checkbox" id="privacy" class="custom-control-input visually-hidden" required>
                       <label for="privacy" class="custom-control-label">Tôi đã đọc và đồng ý với điều khoản dịch vụ của website<span class="required">*</span></label>
                     </div>
                   </div>

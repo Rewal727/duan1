@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 include "model/pdo.php";
 include "model/sanpham.php";
 include "model/danhmuc.php";
@@ -12,9 +13,12 @@ if (!isset($_SESSION['mycart'])) {
     $_SESSION['mycart'] = [];
 }
 
+// unset($_SESSION['checkout_detail']);
+
 $spnew = loadall_sanpham_home();
 $dsdm = loadall_danhmuc();
 $dstop6 = loadall_sanpham_top6();
+$dstop = loadall_sanpham_top4();
 
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
@@ -81,7 +85,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             break;
         case 'account':
-
+            if(!isset($_SESSION['user'])) {
+                echo "<script>alert('Vui lòng đăng nhập để truy cập')</script>";
+                echo "<script>window.location.href = 'index.php?act=dangnhap'</script>";
+            }
+            $list_bill = load_bill_byuser($_SESSION['user']['id']);
+            // print_r($list_bill);
             include "view/taikhoan/account.php";
             break;
         case 'edittk':
@@ -117,44 +126,82 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/taikhoan/dangnhap.php";
             break;
         case 'addtocart':
-            if (isset($_POST['addtocart'])) {
-                    $id = $_POST['id'];
-                    $name = $_POST['name'];
+            if(!isset($_SESSION['user'])){
+                echo '<script>alert("Đăng nhập để tiếp tục");window.location="index.php?act=dangnhap";</script>';    
+            }
+            else{
+                if (!isset($_SESSION['mycart'])) {
+                    $_SESSION['mycart'] = array();
+                }
+                if(isset($_POST['addtocart'])||isset($_GET['idpro'])){
+                    $id = isset($_POST['id'])?$_POST['id']:$_GET['idpro'];
+                    $soluong = isset($_POST['soluong'])?$_POST['soluong']:'1';
                     $img = $_POST['img'];
-                    $price = $_POST['price'];
-                    $soluong = $_POST['amount'];
-                    $product_exists = false;    
-                    foreach($_SESSION['mycart'] as &$item) {
-                        if ($item[0] == $id) {
-                            $item[4] += $soluong; // Tăng số lượng
-                            $item[5] = $item[4] * $item[3]; // Cập nhật tổng tiền
-                            $product_exists = true;
-                            break;
+                    if(isset($_SESSION['mycart'][$id])){
+                        if(($_SESSION['mycart'][$id]['soluong']+$soluong)>3){
+                        }
+                        else{
+                        $_SESSION['mycart'][$id]['soluong'] +=$soluong;
+                        $_SESSION['mycart'][$id]['total_price'] = $_SESSION['mycart'][$id]['price'] * $_SESSION['mycart'][$id]['soluong'];
                         }
                     }
-
-                    if (!$product_exists) {
-                        $ttien = $soluong * $price;
-                        $sanphamadd = [$id, $name, $img, $price, $soluong, $ttien];
-                        array_push($_SESSION['mycart'], $sanphamadd);
+                    else{
+                        $product = loadone_sanpham($id);
+                        $_SESSION['mycart'][$id] =[
+                            'name' => $product['name'],
+                            'price' => $product['price'],
+                            'img' => $product['img'],
+                            'id' => $idcart,
+                            'soluong' => $soluong,
+                            'total_price' => $product['price'] * $soluong
+                        ];
+                        
                     }
-
-
-                    // echo "<pre>";
-                    //     var_dump($_SESSION['my_cart']);
-                    //     die;
-                
-                
+                }
+                header('Location: index.php?act=giohang');
             }
-            include "view/cart/viewcart.php";
             break;
+
+            case 'cong_cart':
+                if(isset($_GET['idpro'])){
+                    $idpro = $_GET['idpro'];
+                    if(isset($_SESSION['mycart'][$idpro])){
+                        
+                        if($_SESSION['mycart'][$idpro]['soluong'] < 3 ){
+                        $_SESSION['mycart'][$idpro]['soluong']+=1;
+                        $_SESSION['mycart'][$idpro]['total_price'] = $_SESSION['mycart'][$idpro]['soluong'] * $_SESSION['mycart'][$idpro]['price'];
+                        }
+                        header('Location: index.php?act=giohang');
+                    }
+                    // include "view/cart/viewcart.php";
+                }
+                break;
+            case 'tru_cart':
+                if (isset($_GET['idpro'])) {
+                    $idpro = $_GET['idpro'];
+                    if (isset($_SESSION['mycart'][$idpro])) {
+                        if($_SESSION['mycart'][$idpro]['soluong'] <= 3 && $_SESSION['mycart'][$idpro]['soluong'] >= 0){
+                        $_SESSION['mycart'][$idpro]['soluong'] -= 1;
+                        $_SESSION['mycart'][$idpro]['total_price'] = $_SESSION['mycart'][$idpro]['soluong'] * $_SESSION['mycart'][$idpro]['price'];
+                        }
+                        if($_SESSION['mycart'][$idpro]['soluong'] == 0){
+                            unset($_SESSION['mycart'][$idpro]);
+                        }
+                        header('Location: index.php?act=giohang');
+                    }
+                }
+                break;
+
         case 'delcart':
             if (isset($_GET['idcart'])) {
                 array_splice($_SESSION['mycart'], $_GET['idcart'], 1);
             } else {
                 $_SESSION['mycart'] = [];
             }
-            // header('Location: index.php?act=addtocart');
+            header('Location: index.php?act=giohang');
+            // include "view/cart/viewcart.php";
+            break;
+        case 'giohang':
             include "view/cart/viewcart.php";
             break;
         case 'bill':
@@ -163,38 +210,54 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case 'billconfirm':
 
             if (isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
-                if (isset($_SESSION['user'])) {
-                    $iduser = $_SESSION['user']['id'];
-                } else {
-                    $id = 0;
-                }
+                $iduser = $_SESSION['user']['id'];
                 $name = $_POST['user'];
                 $email = $_POST['email'];
                 $address = $_POST['address'];
                 $tel = $_POST['tel'];
+                $ngaydathang = date('Y-m-d H:s:i');
+                $total = $_POST['total'];
+                // foreach($_SESSION['mycart'] as $product ){
+                //     $tong_tien += $product['total_price'];
+                // }
                 $pttt = $_POST['pttt'];
-                $ngaydathang = date('h:i:sa d/m/Y');
-                $tongdonhang = tongdonhang();
+                
+                // echo "<pre>";
+                // print_r($_POST);
+                // echo "</pre>";
+                //     die;
+                $idbill = insert_bill($iduser, $name, $email, $address, $tel, $pttt, $ngaydathang, $total);
+                
+                    
+                foreach($_SESSION['mycart'] as $idpro => $product){
+                    extract($product);
+                    $thanhtien = $price * $soluong;
 
-                // tao bill
-                $idbill = insert_bill($iduser, $name, $email, $address, $tel, $pttt, $ngaydathang, $tongdonhang);
+                    insert_order_detail($idbill,$idpro,$soluong,$price);
 
-                // insert into cart : $session['mycart'] & idbill
+                    product_update_quantity($soluong,$idpro);
 
-                foreach ($_SESSION['mycart'] as $cart) {
-                    insert_cart($_SESSION['user']['id'], $cart[0], $cart[2], $cart[1], $cart[3], $cart[4], $cart[5], $idbill);
+                    createCartDetail($_SESSION['user']['id'],$idpro,$soluong,$total_price);
+
+                    insert_cart($_SESSION['user']['id'], $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill);
                 }
 
-                // xoa session cart
-                $_SESSION['cart'] = [];
-            }
+                // foreach ($_SESSION['mycart'] as $cart) {
+                //     $thanhtien = $cart['price'] * $cart['soluong'];
+                // }
+                
+                unset($_SESSION['mycart']);
 
-            $bill = loadone_bill($idbill);
-            $billct = loadall_cart($idbill);
+                // header('Location: view/cart/billconfirm_chitiet.php');
+            }
+                // $_SESSION['idbill'] = $idbill;
+                $bill = loadone_bill($idbill);
+                $billct = loadall_cart($idbill);
             include "view/cart/billconfirm.php";
             break;
         case 'mybill':
-            $listbill = loadall_bill($_SESSION['user']['id']);
+            // $listbill = loadall_bill($_SESSION['user']['id']);
+            $list_bill = load__bilL($_SESSION['user']['id']);
             include "view/cart/mybill.php";
             break;
         case 'gioithieu':
@@ -203,17 +266,22 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case 'lienhe':
             include "view/lienhe.php";
             break;
-
-
-        case 'menu':
-            if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) {
-                $iddm = $_GET['iddm'];
-            } else {
-                $iddm = 0;
+        
+        case 'huydh':
+            $list_bill = load_bill_byuser($_SESSION['user']['id']);
+            if (isset($_GET['id']) && !empty($_GET['id'])) {
+                $id = $_GET['id'];
+                $dh = loadone_bill($id);
+                extract($dh);
+                if ($bill_status == 0) {
+                    update_dh($id, 4);
+                } else {
+           
+                    echo "Không thể hủy đơn hàng với trạng thái hiện tại là: ";
+                }
             }
-            $tendm = load_menu_danhmuc($id);
-
-            include "view/menu/trasua.php";
+                // header("Location: index.php?act=account");
+            include "view/taikhoan/account.php";
             break;
         default:
             include "home2.php";
@@ -223,3 +291,4 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
     include "home2.php";
 }
 include "footer2.php";
+ob_flush();

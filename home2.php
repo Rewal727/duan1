@@ -200,7 +200,6 @@
           <div class="isotope-filter isotope-filter-style2">
             <button class="active" data-filter="*">New Arrival</button>
             <button data-filter=".filter_new">Trending</button>
-            <button data-filter=".filter_best_sellers">Best Sellers</button>
             <button data-filter=".filter_on_sall">On Sale</button>
           </div>
         </div>
@@ -243,11 +242,7 @@
                                   </svg>
                                   </button>
                                 </form>                                                        
-                              <div class="product-action-links">
-                                <button type="button" class="btn-product-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                  <i class="pe-7s-like"></i>
-                                </button>
-                              </div>
+                        
                             </div>
                         </div>
                       </div>';
@@ -290,108 +285,60 @@
         <div class="col-12">
           <div class="section-title shape-center text-center">
             <h5 class="sub-title">SẢN PHẨM BÁN CHẠY</h5>
-            <h2 class="title">Trong Ngày</h2>
+            <h2 class="title">Trà sữa VHT</h2>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 col-sm-6">
-          <!--== Start Product Item ==-->
-          <div class="product-item daily-product-item">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="product-thumb">
-                  <a href="single-product.html">
-                    <img src="assets/img/photos/sanpham2.png" width="270" height="320" alt="Image-HasTech">
-                  </a>
-                  <div class="product-action">
-                    <button type="button" class="btn-product-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                      <i class="pe-7s-like"></i>
-                    </button>
-                    <div class="product-action-links">
-                      <button type="button" class="btn-product-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                        <i class="pe-7s-shopbag"></i>
-                      </button>
-                      <button type="button" class="btn-product-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                        <i class="pe-7s-look"></i>
-                      </button>
+        
+      <div class="row isotope-grid">
+        
+        <?php
+        // include "global.php";
+        // include "model/sanpham.php";
+        $dstop = loadall_sanpham_top4();
+        $i = 0;
+        foreach ($dstop as $sp) {
+          extract($sp);
+          $linksp = "index.php?act=sanphamct&idsp=" . $id;
+          $hinh = $img_path . $img;
+          echo '<div class="col-sm-6 col-lg-3 isotope-item filter_new filter_best_sellers">
+                    <div class="product-item">
+                        <div class="product-thumb" >
+                          <a href="' . $linksp . '">
+                            <img src="' . $hinh . '" width="270" height="320" alt="anhsp">
+                          </a>
+                        </div>
+                        <div class="product-info">
+                          <h4 class="title"><a href="single-product.html">' . $name . '</a></h4>
+                          <div class="prices">
+                            <span class="price">' . $price . ' VNĐ</span>
+                          </div>
+                        </div>
+                        <div class="product-action">                      
+                            <form action="index.php?act=addtocart" method="POST">
+                              <input type="hidden" name="amount" id="amount" value="1">
+                              <input type="hidden" name="id" value="' . $id . '">
+                              <input type="hidden" name="name" value="' . $name . '">
+                              <input type="hidden" name="img" value="' . $img . '">
+                              <input type="hidden" name="price" value="' . $price . '">
+                              <button type="submit" name="addtocart" value="Add">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="20" width="25" viewBox="0 0 576 512">
+                              <!-- Biểu tượng giỏ hàng SVG của bạn -->
+                              <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z"/>
+                              </svg>
+                              </button>
+                            </form>                                                        
+                    
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="product-info">
-                  <div class="ht-countdown-wrap">
-                    <span class="countdown-title">End In:</span>
-                    <div class="ht-countdown ht-countdown-style1" data-date="1/10/2024"></div>
-                  </div>
-                  <h4 class="title"><a href="single-product.html">Trà sữa nướng</a></h4>
-                  <div class="prices">
-                    <span class="price">25.000 VNĐ</span>
-                  </div>
-                  <div class="product-feature-list">
-                    <ul>
-                      <li><span>Sữa :</span> 70% </li>
-                      <li><span>Đường :</span> 10% </li>
-                      <li><span>Trân châu :</span> 20% </li>
-                      <li><span>Trọng lượng :</span> 500ml</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  </div>';
+          $i += 1;
+        } ?>
           <!--== End prPduct Item ==-->
-        </div>
-        <div class="col-12 col-sm-6">
-          <!--== Start Product Item ==-->
-          <div class="product-item daily-product-item">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="product-thumb">
-                  <a href="single-product.html">
-                    <img src="assets/img/photos/sanpham1.png" width="270" height="320" alt="Image-HasTech">
-                  </a>
-                  <div class="product-action">
-                    <button type="button" class="btn-product-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                      <i class="pe-7s-like"></i>
-                    </button>
-                    <div class="product-action-links">
-                      <button type="button" class="btn-product-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                        <i class="pe-7s-shopbag"></i>
-                      </button>
-                      <button type="button" class="btn-product-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                        <i class="pe-7s-look"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="product-info">
-                  <div class="ht-countdown-wrap">
-                    <span class="countdown-title">End In:</span>
-                    <div class="ht-countdown ht-countdown-style1" data-date="1/10/2024"></div>
-                  </div>
-                  <h4 class="title"><a href="single-product.html">Trà sữa chân trâu</a></h4>
-                  <div class="prices">
-                    <span class="price">25.000 VNĐ</span>
-                  </div>
-                  <div class="product-feature-list">
-                    <ul>
-                      <li><span>Sữa :</span> 70% </li>
-                      <li><span>Đường :</span> 10% </li>
-                      <li><span>Trân châu :</span> 20% </li>
-                      <li><span>Trọng lượng :</span> 500ml</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--== End prPduct Item ==-->
-        </div>
       </div>
+          
+        
+      
     </div>
   </section>
 
@@ -466,10 +413,7 @@
                                 </button>';
                         ?>
                       </form>
-                      
-                      <button type="button" class="btn-product-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                        <i class="pe-7s-look"></i>
-                      </button>
+                    
                     </div>
                   </div>
                   <!--== End Product Info Area ==-->

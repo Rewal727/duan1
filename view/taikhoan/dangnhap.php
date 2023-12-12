@@ -69,18 +69,18 @@
                   <div class="col-12">
                     <div class="form-group">
                       <label for="username">Username <span class="required">*</span></label>
-                      <input id="username" name="user" class="form-control" type="text">
+                      <input id="username" name="user" class="form-control" type="text" required>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
                       <label for="password">Password <span class="required">*</span></label>
-                      <input name="pass" id="password" class="form-control" type="password">
+                      <input name="pass" id="password" class="form-control" type="password" required>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
-                      <input type="submit" class="btn-login" name="dangnhap" value="Đăng nhập"> 
+                      <input type="submit" class="btn-login" name="dangnhap" value="Đăng nhập" required> 
                     </div>
                   </div>
                   <div class="col-12">

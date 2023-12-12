@@ -1,54 +1,15 @@
 
 <?php
-function view_cart($del)
-{   
-    global $img_path;
-    $tong = 0;
-    $i = 0;
-    if ($del == 1) {
-        $xoasp_th = '<th>Thao tác</th>';
-        $xoasp_td2 = '<td></td>';
-    } else {
-        $xoasp_th = '';
-        $xoasp_td2 = '';
-    }
-    echo '<tr>
-            <th>Hình</th>
-            <th>Sản phẩm</th>
-            <th>Đơn giá</th>
-            <th>Số lượng</th>
-            <th>Thành tiền</th>
-            ' . $xoasp_th . '
-            </tr>';
-    foreach ($_SESSION['mycart'] as $cart) {
-        $hinh = $img_path . $cart[2];
-        $ttien = $cart[3] * $cart[4];
-        $tong += $ttien;
-        if ($del == 1) {
-            $xoasp_td = '<a href="index.php?act=delcart&idcart=' . $i . '"> 
-                <input type="button" value="Xóa"></a>';
-        } else {
-            $xoasp_td = '';
-        }
 
-        echo '<tr>
-                <td><img src="' . $hinh . '" height="60px" width="60px"></td>
-                <td>' . $cart[1] . '</td>
-                <td>' . $cart[3] . '</td>
-                <td>' . $cart[4] . '</td>
-                <td>' . $ttien . '</td>
-                <td>' . $xoasp_td . '</td>
-                </tr>';
-        $i += 1;
-    }
-    echo '<tr   >
-                <td>Tổng đơn hàng</td>             
-                <td>' . $tong . '</td>
-                ' . $xoasp_td2 . '
-                </tr>';
+function get_all_cart(){
+    $sql = "select * from bill order by ngaydathang desc";
+    return pdo_query($sql);
 }
 
-
+function createCartDetail($iduser,$idpro,$soluong,$thanhtien){
+    $sql = "insert into cart(iduser,idpro,soluong,thanhtien) value(?,?,?,?)";
+    pdo_execute($sql,$iduser,$idpro, $soluong, $thanhtien);
+}
 
 function tongdonhang()
 {
@@ -61,18 +22,27 @@ function tongdonhang()
 }
 
 
-function insert_bill($iduser, $name, $email, $address, $tel, $pttt, $ngaydathang, $tongdonhang)
+function insert_bill($iduser, $name, $email, $address, $tel, $pttt, $ngaydathang, $total)
 {
     $sql = "INSERT INTO bill(iduser,bill_name,bill_email,bill_address,bill_tel,bill_pttt,ngaydathang,total) 
-        values('$iduser','$name','$email','$address','$tel','$pttt','$ngaydathang','$tongdonhang')";
+        values('$iduser','$name','$email','$address','$tel','$pttt','$ngaydathang','$total')";
+    
+    // die($sql);
     return pdo_execute_return_lastInsertId($sql);
+}
+
+function insert_order_detail($id,$product_id,$quantity,$price) {
+    $sql = "INSERT INTO `bill_chitiet`(`order_id`, `product_id`, `quantity`, `price`) 
+            VALUES 
+            ('$id','$product_id','$quantity','$price')";
+    pdo_execute($sql);
 }
 
 function insert_cart($iduser, $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill)
 {
     $sql = "INSERT INTO cart(iduser, idpro, img, name, price, soluong, thanhtien, idbill) 
         values('$iduser','$idpro','$img','$name','$price','$soluong','$thanhtien','$idbill')";
-    pdo_execute($sql);
+    return pdo_execute_return_lastInsertId($sql);
 }
 
 function loadone_bill($id){
@@ -94,26 +64,36 @@ function update_bill($id, $bill_name, $bill_address, $bill_tel, $bill_email, $to
 
 function chitiet_bill($listbill)
 {
-    global $img_path;
     $tong = 0;
-    $i = 0;
-    foreach ($listbill as $cart) {
-        $hinh = $img_path . $cart['img'];
-        $tong += $cart['thanhtien'];
 
+    foreach ($listbill as $cart) {
+        extract($cart);
+        $thanhtien = $price * $soluong;
+        $tong += $thanhtien;
         echo '<tr>
-                <td><img src="' . $hinh . '" height="60px" width="60px"></td>
-                <td>' . $cart['name'] . '</td>
-                <td>' . $cart['price'] . '</td>
-                <td>' . $cart['soluong'] . '</td>
-                <td>' . $cart['thanhtien'] . '</td>
+                <td><img src="./upload/'.$img.'" height="60px" width="60px"></td>
+                <td>' . $name . '</td>
+                <td>' . $price . ' VNĐ</td>
+                <td>' . $soluong . '</td>
+                <td>' . $thanhtien . ' VNĐ</td>
                 </tr>';
-        $i += 1;
     }
-    echo '<tr   >
+    echo '<tr colspan="4">
                 <td>Tổng đơn hàng</td>             
-                <td>' . $tong . '</td>
+                <td style="color: red; font-weight:700;">' . $tong + $_SESSION['ship'] . ' VNĐ</td>
                 </tr>';
+}
+
+
+function update_dh($id, $ttdh)
+{
+  $sql = "update bill set bill_status='".$ttdh."' where id=".$id;
+  pdo_execute($sql);
+}
+
+function update_trangthai($id) {
+    $sql = "UPDATE bill SET payment_status = 1 WHERE id = $id";
+    pdo_execute($sql);
 }
 
 function delete_donhang($id)
@@ -138,11 +118,52 @@ function loadall_bill($kyw = "", $iduser = 0)
     return $listbill;
 }
 
+function load__bilL($kyw = "", $iduser = 0) {
+    $sql = "select * from bill where 1";
+    if ($kyw != "") {
+        $sql .= " AND id like '%" . $kyw . "%'";
+    }
+    if ($iduser > 0) {
+        $sql .= " AND iduser =" . $iduser;
+    }
+    $sql .= " order by id desc";
+    $listbill = pdo_query($sql);
+    return $listbill;
+}
+
+function load_bill_byuser($id_user) {
+    $sql = "SELECT * FROM bill WHERE iduser = $id_user ORDER BY id DESC";
+    return pdo_query($sql);
+}
+
 function loadall_cart_count($idbill)
 {
     $sql = "select * from cart where idbill =" . $idbill;
-    $bill = pdo_query($sql);
-    return sizeof($bill);
+    return pdo_query($sql);
+}
+
+function load_bill_admin($idorder) {
+    $sql = "SELECT
+                bill_chitiet.id,
+                bill_chitiet.order_id,
+                bill_chitiet.product_id,
+                bill_chitiet.quantity,
+                bill_chitiet.price,
+                sanpham.id,
+                sanpham.name,
+                sanpham.price,
+                sanpham.soluong,
+                sanpham.img
+            FROM 
+                bill_chitiet 
+            JOIN
+                sanpham ON sanpham.id = bill_chitiet.product_id
+            WHERE 
+                bill_chitiet.order_id = $idorder 
+            ORDER BY 
+                bill_chitiet.id desc
+            ";
+    return pdo_query($sql);
 }
 
 
@@ -171,6 +192,20 @@ function get_ttdh($n)
     return $tt;
 }
 
+function thanhtoan_status($n){
+    switch ($n) {
+        case '0':
+            $tt = "Chưa thanh toán";
+            break;
+        case '1':
+            $tt = "Đã thanh toán";
+            break;
+        default:
+            $tt = "Chưa thanh toán";
+            break;
+    }
+    return $tt;
+}
 
 
 function loadall_thongke()
@@ -182,18 +217,5 @@ function loadall_thongke()
     $listtk = pdo_query($sql);
     return $listtk;
 }
-
-
-// function loadall_billct($id)
-// {
-//   $sql = "SELECT * FROM bill LEFT JOIN cart ON bill.id = cart.idbill";
-  
-//   $result = pdo_query($sql);
-  
-//   return $result;
-// }
-
-// function trangthai($bill_status){
-
-// }
 ?>
+

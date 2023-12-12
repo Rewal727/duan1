@@ -90,7 +90,7 @@
                     </ul>
                   </li>
                   <li class="has-submenu"><a href="#"><span>Giới thiệu</span></a></li>
-                  <li><a href="contact.html"><span>Liên hệ</span></a></li>
+                  <li><a href="#"><span>Liên hệ</span></a></li>
                   <li class="has-submenu"><a href="index.php?act=account"><span>Tài khoản</span></a>
                     <ul class="submenu-nav">
                       <li><a href="index.php?act=account"><span>Trang cá nhân</span></a></li>
@@ -112,13 +112,9 @@
                     <i class="pe-7s-users icon"></i>
                   </a>
                 </div>
-                <div class="shopping-wishlist">
-                  <a class="shopping-wishlist-btn" href="shop-wishlist.html">
-                    <i class="pe-7s-like icon"></i>
-                  </a>
-                </div>
+
                 <div class="shopping-cart">
-                  <a href="index.php?act=addtocart">
+                  <a href="index.php?act=giohang">
                   <button class="shopping-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="AsideOffcanvasCart">
                     <i class="pe-7s-shopbag icon"></i>
                     <sup class="shop-count">!</sup>

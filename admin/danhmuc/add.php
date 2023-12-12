@@ -8,7 +8,7 @@
                     </div>
                     <div class="row margin-b10">
                         Tên loại <br>
-                        <input type="text" name="tenloai">
+                        <input type="text" name="tenloai" required>
                     </div>
                     <div class="row margin-b10" style="display:inline-block;">
                         <input type="submit" name="themmoi" value="THÊM MỚI" style="width: 100px;">
