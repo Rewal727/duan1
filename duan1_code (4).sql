@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 12, 2023 lúc 05:38 PM
+-- Thời gian đã tạo: Th12 12, 2023 lúc 06:37 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.1.17
 
@@ -54,7 +54,8 @@ INSERT INTO `bill` (`id`, `iduser`, `bill_name`, `bill_address`, `bill_tel`, `bi
 (351, 6, 'nguyenxuanhung', 'hà nội', '0987544615', 'hungnxph35478@fpt.edu.vn', 2, '2023-12-12 15:58:35', 65000, 0, 0),
 (352, 6, 'nguyenxuanhung', 'hà nội', '0987544615', 'hungnxph35478@fpt.edu.vn', 2, '2023-12-12 15:00:54', 90000, 0, 0),
 (353, 1, '  uprprc', ' 153 Mễ Trì Hạ', ' 0356346232', '   sebastran727@gmail.com', 2, '2023-12-12 16:19:14', 105000, 4, 0),
-(354, 1, '    uprprc', '  153 Mễ Trì Hạ', '  0356346232', '      sebastran727@gmail.com', 2, '2023-12-12 16:42:15', 80000, 3, 1);
+(354, 1, '    uprprc', '  153 Mễ Trì Hạ', '  0356346232', '      sebastran727@gmail.com', 2, '2023-12-12 16:42:15', 80000, 3, 1),
+(355, 6, 'nguyenxuanhung', 'a', '0987544615', 'hungnxph35478@fpt.edu.vn', 2, '2023-12-12 17:34:54', 45000, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,8 @@ INSERT INTO `bill_chitiet` (`id`, `order_id`, `product_id`, `quantity`, `price`)
 (193, 353, 7, 2, 20000.00),
 (194, 353, 4, 1, 50000.00),
 (195, 354, 9, 1, 25000.00),
-(196, 354, 7, 2, 20000.00);
+(196, 354, 7, 2, 20000.00),
+(197, 355, 14, 2, 15000.00);
 
 -- --------------------------------------------------------
 
@@ -179,7 +181,9 @@ INSERT INTO `cart` (`id`, `iduser`, `idpro`, `img`, `name`, `price`, `soluong`, 
 (144, 1, 9, NULL, NULL, 0, 1, 25000, 0),
 (145, 1, 9, 'sanpham1.png', 'Trà sữa GongCha', 25000, 1, 25000, 354),
 (146, 1, 7, NULL, NULL, 0, 2, 40000, 0),
-(147, 1, 7, 'sanpham3.png', 'Trà chanh lô hội', 20000, 2, 40000, 354);
+(147, 1, 7, 'sanpham3.png', 'Trà chanh lô hội', 20000, 2, 40000, 354),
+(148, 6, 14, NULL, NULL, 0, 2, 30000, 0),
+(149, 6, 14, 'kem-trang-tien-219865.jpg', 'Kem ốc quế', 15000, 2, 30000, 355);
 
 -- --------------------------------------------------------
 
@@ -231,11 +235,11 @@ INSERT INTO `sanpham` (`id`, `name`, `price`, `soluong`, `img`, `mota`, `luotxem
 (8, 'Trà sữa linh tinh', 25000.00, 44, 'sanpham2.png', '', 0, 1),
 (9, 'Trà sữa GongCha', 25000.00, 26, 'sanpham1.png', '', 0, 1),
 (10, 'Trà sữa hồng', 25000.00, 12, 'sanpham5.png', 'Mô tả của mô tả của mô tả', 0, 1),
-(12, 'Xúc xích', 20000.00, 0, 'a697cc1b-5833-483b-afe3-48b81a7da20a.avif', 'ngon lắm nên mua', 1000, 3),
-(13, 'Kem đậu xanh', 10000.00, 0, 'e8ecfc5fb8d8adbcb2caf7c7eb84c692.jpg', 'rất tràng tiền', 0, 2),
-(14, 'Kem ốc quế', 15000.00, 0, 'kem-trang-tien-219865.jpg', '', 11, 2),
-(15, 'Kem que miền tây ', 12000.00, 0, 'kem-que-mo-tay-1662966622.jpg', '', 0, 2),
-(16, 'Bim Bim', 10000.00, 0, 'th.jpg', '', 0, 3);
+(14, 'Kem ốc quế', 15000.00, -2, 'kemmoi1.png', '', 11, 2),
+(17, 'Bim Bim', 10000.00, 0, 'bimbim.png', '', 0, 3),
+(18, 'Kem que miền tây', 12000.00, 0, 'kemmoi3.png', '', 0, 2),
+(19, 'Kem đậu xanh', 10000.00, 0, 'kemmoi2.png', '', 3, 2),
+(20, 'Xúc xích', 20000.00, 0, 'xucxich.png', '', 1000, 3);
 
 -- --------------------------------------------------------
 
@@ -325,13 +329,13 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=355;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=356;
 
 --
 -- AUTO_INCREMENT cho bảng `bill_chitiet`
 --
 ALTER TABLE `bill_chitiet`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
 
 --
 -- AUTO_INCREMENT cho bảng `binhluan`
@@ -343,7 +347,7 @@ ALTER TABLE `binhluan`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
@@ -355,7 +359,7 @@ ALTER TABLE `danhmuc`
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
